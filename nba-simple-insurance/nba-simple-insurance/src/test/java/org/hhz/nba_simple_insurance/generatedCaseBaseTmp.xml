@@ -1,0 +1,403 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<cbml>
+    <caseBaseDefinition>
+        <computedAttributeDefinition key="numberOfCases" type="java.lang.Integer" value="0">
+            <computation class="org.hhz.nbareasoner.cbml.impl.advanced.computing.computations.CasesIncidentsNumberComputation"/>
+        </computedAttributeDefinition>
+        <caseDefinition>
+            <computedAttributeDefinition key="lineage" type="java.lang.String" value="besipielwert zum testen">
+                <computation class="org.hhz.nbareasoner.cbml.impl.advanced.computing.computations.LineageAttributeComputation"/>
+            </computedAttributeDefinition>
+            <computedAttributeDefinition key="averageCost" type="java.lang.Double" value="0.0">
+                <keyAlias key="de" alias="Durchschnittliche Kosten"/>
+                <keyAlias key="en" alias="Average Cost"/>
+                <computation class="org.hhz.nbareasoner.cbml.impl.advanced.computing.computations.SumUpIncidentAttributesComputation">
+                    <computationParameter key="sumAttribute" value="averageCost"/>
+                </computation>
+            </computedAttributeDefinition>
+            <loadedAttributeDefinition key="insurant" type="java.lang.String" value="insurant">
+                <loadingSourceOpenedCase class="org.hhz.nbareasoner.cbml.impl.advanced.loading.loader.AttributeLoaderCsvJdbc">
+                    <loadingSourceParameter key="src" value="file:///C:\Users\mbehr\Desktop\project-nba\Thesis\nba-reasoner\nba-simple-insurance\nba-simple-insurance/src/test/java/org/hhz/nba_simple_insurance/case-log.csv"/>
+                    <loadingSourceParameter key="separator" value=";"/>
+                    <loadingSourceParameter key="sqlSelect" value="Select  caseId, insurant as value from case-log where caseId='${openedCaseId}' "/>
+                </loadingSourceOpenedCase>
+                <loadingSourceClosedCase class="org.hhz.nbareasoner.cbml.impl.advanced.loading.loader.AttributeLoaderCsvJdbc">
+                    <loadingSourceParameter key="src" value="file:///C:\Users\mbehr\Desktop\project-nba\Thesis\nba-reasoner\nba-simple-insurance\nba-simple-insurance/src/test/java/org/hhz/nba_simple_insurance/case-log.csv"/>
+                    <loadingSourceParameter key="separator" value=";"/>
+                    <loadingSourceParameter key="sqlSelect" value="Select  caseId, insurant as value from case-log where lifecycleStatus='closed' "/>
+                </loadingSourceClosedCase>
+            </loadedAttributeDefinition>
+            <loadedAttributeDefinition key="damageCategory" type="java.lang.String" value="damageCategory">
+                <loadingSourceOpenedCase class="org.hhz.nbareasoner.cbml.impl.advanced.loading.loader.AttributeLoaderCsvJdbc">
+                    <loadingSourceParameter key="src" value="file:///C:\Users\mbehr\Desktop\project-nba\Thesis\nba-reasoner\nba-simple-insurance\nba-simple-insurance/src/test/java/org/hhz/nba_simple_insurance/case-log.csv"/>
+                    <loadingSourceParameter key="separator" value=";"/>
+                    <loadingSourceParameter key="sqlSelect" value="Select  caseId, damageCategory as value from case-log where caseId='${openedCaseId}' "/>
+                </loadingSourceOpenedCase>
+                <loadingSourceClosedCase class="org.hhz.nbareasoner.cbml.impl.advanced.loading.loader.AttributeLoaderCsvJdbc">
+                    <loadingSourceParameter key="src" value="file:///C:\Users\mbehr\Desktop\project-nba\Thesis\nba-reasoner\nba-simple-insurance\nba-simple-insurance/src/test/java/org/hhz/nba_simple_insurance/case-log.csv"/>
+                    <loadingSourceParameter key="separator" value=";"/>
+                    <loadingSourceParameter key="sqlSelect" value="Select  caseId, damageCategory as value from case-log where lifecycleStatus='closed' "/>
+                </loadingSourceClosedCase>
+            </loadedAttributeDefinition>
+            <loadedAttributeDefinition key="lifecycleStatus" type="java.lang.String" value="lifecycleStatus">
+                <valueAlias value="open" key="de" alias="offen"/>
+                <valueAlias value="open" key="en" alias="open"/>
+                <valueAlias value="closed" key="de" alias="abgeschlossen"/>
+                <valueAlias value="closed" key="en" alias="closed"/>
+                <loadingSourceOpenedCase class="org.hhz.nbareasoner.cbml.impl.advanced.loading.loader.AttributeLoaderCsvJdbc">
+                    <loadingSourceParameter key="src" value="file:///C:\Users\mbehr\Desktop\project-nba\Thesis\nba-reasoner\nba-simple-insurance\nba-simple-insurance/src/test/java/org/hhz/nba_simple_insurance/case-log.csv"/>
+                    <loadingSourceParameter key="separator" value=";"/>
+                    <loadingSourceParameter key="sqlSelect" value="Select  caseId as caseId, lifecycleStatus as value from case-log where caseId='${openedCaseId}' "/>
+                </loadingSourceOpenedCase>
+                <loadingSourceClosedCase class="org.hhz.nbareasoner.cbml.impl.advanced.loading.loader.AttributeLoaderCsvJdbc">
+                    <loadingSourceParameter key="src" value="file:///C:\Users\mbehr\Desktop\project-nba\Thesis\nba-reasoner\nba-simple-insurance\nba-simple-insurance/src/test/java/org/hhz/nba_simple_insurance/case-log.csv"/>
+                    <loadingSourceParameter key="separator" value=";"/>
+                    <loadingSourceParameter key="sqlSelect" value="Select  caseId as caseId, lifecycleStatus as value from case-log where lifecycleStatus='closed' "/>
+                </loadingSourceClosedCase>
+            </loadedAttributeDefinition>
+            <loadedAttributeDefinition key="caseId" type="java.lang.String" value="id">
+                <loadingSourceClosedCase class="org.hhz.nbareasoner.cbml.impl.advanced.loading.loader.AttributeLoaderCsvJdbc">
+                    <loadingSourceParameter key="src" value="file:///C:\Users\mbehr\Desktop\project-nba\Thesis\nba-reasoner\nba-simple-insurance\nba-simple-insurance/src/test/java/org/hhz/nba_simple_insurance/case-log.csv"/>
+                    <loadingSourceParameter key="separator" value=";"/>
+                    <loadingSourceParameter key="sqlSelect" value="Select  caseId as caseId, caseId as value from case-log where lifecycleStatus='closed' group by caseId "/>
+                </loadingSourceClosedCase>
+            </loadedAttributeDefinition>
+            <loadedAttributeDefinition key="claimant" type="java.lang.String" value="claimant">
+                <loadingSourceOpenedCase class="org.hhz.nbareasoner.cbml.impl.advanced.loading.loader.AttributeLoaderCsvJdbc">
+                    <loadingSourceParameter key="src" value="file:///C:\Users\mbehr\Desktop\project-nba\Thesis\nba-reasoner\nba-simple-insurance\nba-simple-insurance/src/test/java/org/hhz/nba_simple_insurance/case-log.csv"/>
+                    <loadingSourceParameter key="separator" value=";"/>
+                    <loadingSourceParameter key="sqlSelect" value="Select  caseId, claimant as value from case-log where caseId='${openedCaseId}' "/>
+                </loadingSourceOpenedCase>
+                <loadingSourceClosedCase class="org.hhz.nbareasoner.cbml.impl.advanced.loading.loader.AttributeLoaderCsvJdbc">
+                    <loadingSourceParameter key="src" value="file:///C:\Users\mbehr\Desktop\project-nba\Thesis\nba-reasoner\nba-simple-insurance\nba-simple-insurance/src/test/java/org/hhz/nba_simple_insurance/case-log.csv"/>
+                    <loadingSourceParameter key="separator" value=";"/>
+                    <loadingSourceParameter key="sqlSelect" value="Select  caseId, claimant as value from case-log where lifecycleStatus='closed' "/>
+                </loadingSourceClosedCase>
+            </loadedAttributeDefinition>
+            <activityDefinition>
+                <loadedAttributeDefinition key="name" type="java.lang.String" value="name">
+                    <loadingSourceOpenedCase class="org.hhz.nbareasoner.cbml.impl.advanced.loading.loader.AttributeLoaderCsvJdbc">
+                        <loadingSourceParameter key="src" value="file:///C:\Users\mbehr\Desktop\project-nba\Thesis\nba-reasoner\nba-simple-insurance\nba-simple-insurance/src/test/java/org/hhz/nba_simple_insurance/activity-log.csv"/>
+                        <loadingSourceParameter key="separator" value=";"/>
+                        <loadingSourceParameter key="sqlSelect" value="Select  caseId, activityName + ' ' +timestamp as incidentId , activityName as value from activity-log where caseId = '${openedCaseId}'"/>
+                    </loadingSourceOpenedCase>
+                    <loadingSourceClosedCase class="org.hhz.nbareasoner.cbml.impl.advanced.loading.loader.AttributeLoaderCsvJdbc">
+                        <loadingSourceParameter key="src" value="file:///C:\Users\mbehr\Desktop\project-nba\Thesis\nba-reasoner\nba-simple-insurance\nba-simple-insurance/src/test/java/org/hhz/nba_simple_insurance/activity-log.csv"/>
+                        <loadingSourceParameter key="separator" value=";"/>
+                        <loadingSourceParameter key="sqlSelect" value="Select  caseId, activityName + ' ' +timestamp as incidentId , activityName as value from activity-log"/>
+                    </loadingSourceClosedCase>
+                </loadedAttributeDefinition>
+                <loadedAttributeDefinition key="incidentId" type="java.lang.String" value="incidentId">
+                    <loadingSourceOpenedCase class="org.hhz.nbareasoner.cbml.impl.advanced.loading.loader.AttributeLoaderCsvJdbc">
+                        <loadingSourceParameter key="src" value="file:///C:\Users\mbehr\Desktop\project-nba\Thesis\nba-reasoner\nba-simple-insurance\nba-simple-insurance/src/test/java/org/hhz/nba_simple_insurance/activity-log.csv"/>
+                        <loadingSourceParameter key="separator" value=";"/>
+                        <loadingSourceParameter key="sqlSelect" value="Select  caseId, activityName + ' ' +timestamp as incidentId , activityName + ' ' +timestamp as value from activity-log where caseId = '${openedCaseId}'"/>
+                    </loadingSourceOpenedCase>
+                    <loadingSourceClosedCase class="org.hhz.nbareasoner.cbml.impl.advanced.loading.loader.AttributeLoaderCsvJdbc">
+                        <loadingSourceParameter key="src" value="file:///C:\Users\mbehr\Desktop\project-nba\Thesis\nba-reasoner\nba-simple-insurance\nba-simple-insurance/src/test/java/org/hhz/nba_simple_insurance/activity-log.csv"/>
+                        <loadingSourceParameter key="separator" value=";"/>
+                        <loadingSourceParameter key="sqlSelect" value="Select  caseId, activityName + ' ' +timestamp as incidentId , activityName + ' ' +timestamp as value from activity-log"/>
+                    </loadingSourceClosedCase>
+                </loadedAttributeDefinition>
+                <loadedAttributeDefinition converterMethod="org.hhz.nbareasoner.cbml.impl.base.definition.attributedefinition.JavaTypeConverter.timestampFromString" key="timestamp" type="java.sql.Timestamp" value="timestamp">
+                    <loadingSourceOpenedCase class="org.hhz.nbareasoner.cbml.impl.advanced.loading.loader.AttributeLoaderCsvJdbc">
+                        <loadingSourceParameter key="src" value="file:///C:\Users\mbehr\Desktop\project-nba\Thesis\nba-reasoner\nba-simple-insurance\nba-simple-insurance/src/test/java/org/hhz/nba_simple_insurance/activity-log.csv"/>
+                        <loadingSourceParameter key="separator" value=";"/>
+                        <loadingSourceParameter key="sqlSelect" value="Select  caseId, activityName + ' ' +timestamp as incidentId , timestamp as value from activity-log where caseId = '${openedCaseId}'"/>
+                    </loadingSourceOpenedCase>
+                    <loadingSourceClosedCase class="org.hhz.nbareasoner.cbml.impl.advanced.loading.loader.AttributeLoaderCsvJdbc">
+                        <loadingSourceParameter key="src" value="file:///C:\Users\mbehr\Desktop\project-nba\Thesis\nba-reasoner\nba-simple-insurance\nba-simple-insurance/src/test/java/org/hhz/nba_simple_insurance/activity-log.csv"/>
+                        <loadingSourceParameter key="separator" value=";"/>
+                        <loadingSourceParameter key="sqlSelect" value="Select  caseId, activityName + ' ' +timestamp as incidentId , timestamp as value from activity-log"/>
+                    </loadingSourceClosedCase>
+                </loadedAttributeDefinition>
+                <predefinedAttributeDefinition key="averageCost" type="java.lang.Double" value="200">
+                    <predefinition perAttributeKey="name">
+                        <predefinitionValue perAttributeValue="Fremdreparatur vornehmen" predefineValue="100"/>
+                        <predefinitionValue perAttributeValue="Haftung und Deckung pruefen" predefineValue="10"/>
+                        <predefinitionValue perAttributeValue="Schaden anlegen" predefineValue="20"/>
+                    </predefinition>
+                </predefinedAttributeDefinition>
+            </activityDefinition>
+        </caseDefinition>
+    </caseBaseDefinition>
+    <caseBase>
+        <computedAttribute key="numberOfCases" type="java.lang.Integer" value="8"/>
+        <case>
+            <loadedAttribute key="insurant" type="java.lang.String" value="Hermann Mueller"/>
+            <computedAttribute key="lineage" type="java.lang.String" value="Schaden anlegen;Haftung und Deckung pruefen;Gutachten beauftragen;Partnerwerkstatt beauftragen;Schaden zahlen und schliessen;"/>
+            <loadedAttribute key="damageCategory" type="java.lang.String" value="Haftpflicht"/>
+            <loadedAttribute key="lifecycleStatus" type="java.lang.String" value="closed"/>
+            <loadedAttribute key="caseId" type="java.lang.String" value="1429099650263"/>
+            <computedAttribute key="averageCost" type="java.lang.Double" value="630.0"/>
+            <loadedAttribute key="claimant" type="java.lang.String" value="Thorsten Bez"/>
+            <activity>
+                <loadedAttribute key="name" type="java.lang.String" value="Schaden anlegen"/>
+                <loadedAttribute key="incidentId" type="java.lang.String" value="Schaden anlegen 1429099769807"/>
+                <predefinedAttribute key="averageCost" type="java.lang.Double" value="20.0"/>
+                <loadedAttribute key="timestamp" type="java.sql.Timestamp" value="2015-04-15 14:09:29.807"/>
+            </activity>
+            <activity>
+                <loadedAttribute key="name" type="java.lang.String" value="Haftung und Deckung pruefen"/>
+                <loadedAttribute key="incidentId" type="java.lang.String" value="Haftung und Deckung pruefen 1429100138514"/>
+                <predefinedAttribute key="averageCost" type="java.lang.Double" value="10.0"/>
+                <loadedAttribute key="timestamp" type="java.sql.Timestamp" value="2015-04-15 14:15:38.514"/>
+            </activity>
+            <activity>
+                <loadedAttribute key="name" type="java.lang.String" value="Gutachten beauftragen"/>
+                <loadedAttribute key="incidentId" type="java.lang.String" value="Gutachten beauftragen 1429100138524"/>
+                <predefinedAttribute key="averageCost" type="java.lang.Double" value="200.0"/>
+                <loadedAttribute key="timestamp" type="java.sql.Timestamp" value="2015-04-15 14:15:38.524"/>
+            </activity>
+            <activity>
+                <loadedAttribute key="name" type="java.lang.String" value="Partnerwerkstatt beauftragen"/>
+                <loadedAttribute key="incidentId" type="java.lang.String" value="Partnerwerkstatt beauftragen 1429100192234"/>
+                <predefinedAttribute key="averageCost" type="java.lang.Double" value="200.0"/>
+                <loadedAttribute key="timestamp" type="java.sql.Timestamp" value="2015-04-15 14:16:32.234"/>
+            </activity>
+            <activity>
+                <loadedAttribute key="name" type="java.lang.String" value="Schaden zahlen und schliessen"/>
+                <loadedAttribute key="incidentId" type="java.lang.String" value="Schaden zahlen und schliessen 1429100203665"/>
+                <predefinedAttribute key="averageCost" type="java.lang.Double" value="200.0"/>
+                <loadedAttribute key="timestamp" type="java.sql.Timestamp" value="2015-04-15 14:16:43.665"/>
+            </activity>
+        </case>
+        <case>
+            <loadedAttribute key="insurant" type="java.lang.String" value="Thomas Erbrecht"/>
+            <computedAttribute key="lineage" type="java.lang.String" value="Schaden anlegen;Haftung und Deckung pruefen;Partnerwerkstatt beauftragen;Schaden zahlen und schliessen;"/>
+            <loadedAttribute key="damageCategory" type="java.lang.String" value="Vollkasko"/>
+            <loadedAttribute key="lifecycleStatus" type="java.lang.String" value="closed"/>
+            <loadedAttribute key="caseId" type="java.lang.String" value="1429100214541"/>
+            <computedAttribute key="averageCost" type="java.lang.Double" value="430.0"/>
+            <loadedAttribute key="claimant" type="java.lang.String" value="Hans Bayer"/>
+            <activity>
+                <loadedAttribute key="name" type="java.lang.String" value="Schaden anlegen"/>
+                <loadedAttribute key="incidentId" type="java.lang.String" value="Schaden anlegen 1429100294534"/>
+                <predefinedAttribute key="averageCost" type="java.lang.Double" value="20.0"/>
+                <loadedAttribute key="timestamp" type="java.sql.Timestamp" value="2015-04-15 14:18:14.534"/>
+            </activity>
+            <activity>
+                <loadedAttribute key="name" type="java.lang.String" value="Haftung und Deckung pruefen"/>
+                <loadedAttribute key="incidentId" type="java.lang.String" value="Haftung und Deckung pruefen 1429100297893"/>
+                <predefinedAttribute key="averageCost" type="java.lang.Double" value="10.0"/>
+                <loadedAttribute key="timestamp" type="java.sql.Timestamp" value="2015-04-15 14:18:17.893"/>
+            </activity>
+            <activity>
+                <loadedAttribute key="name" type="java.lang.String" value="Partnerwerkstatt beauftragen"/>
+                <loadedAttribute key="incidentId" type="java.lang.String" value="Partnerwerkstatt beauftragen 1429100423751"/>
+                <predefinedAttribute key="averageCost" type="java.lang.Double" value="200.0"/>
+                <loadedAttribute key="timestamp" type="java.sql.Timestamp" value="2015-04-15 14:20:23.751"/>
+            </activity>
+            <activity>
+                <loadedAttribute key="name" type="java.lang.String" value="Schaden zahlen und schliessen"/>
+                <loadedAttribute key="incidentId" type="java.lang.String" value="Schaden zahlen und schliessen 1429100427663"/>
+                <predefinedAttribute key="averageCost" type="java.lang.Double" value="200.0"/>
+                <loadedAttribute key="timestamp" type="java.sql.Timestamp" value="2015-04-15 14:20:27.663"/>
+            </activity>
+        </case>
+        <case>
+            <loadedAttribute key="insurant" type="java.lang.String" value="Franz Mayer"/>
+            <computedAttribute key="lineage" type="java.lang.String" value="Schaden anlegen;Haftung und Deckung pruefen;Partnerwerkstatt beauftragen;Schaden zahlen und schliessen;"/>
+            <loadedAttribute key="damageCategory" type="java.lang.String" value="Haftpflicht"/>
+            <loadedAttribute key="lifecycleStatus" type="java.lang.String" value="closed"/>
+            <loadedAttribute key="caseId" type="java.lang.String" value="1429100460141"/>
+            <computedAttribute key="averageCost" type="java.lang.Double" value="430.0"/>
+            <loadedAttribute key="claimant" type="java.lang.String" value="Stefan Kraus"/>
+            <activity>
+                <loadedAttribute key="name" type="java.lang.String" value="Schaden anlegen"/>
+                <loadedAttribute key="incidentId" type="java.lang.String" value="Schaden anlegen 1429100560861"/>
+                <predefinedAttribute key="averageCost" type="java.lang.Double" value="20.0"/>
+                <loadedAttribute key="timestamp" type="java.sql.Timestamp" value="2015-04-15 14:22:40.861"/>
+            </activity>
+            <activity>
+                <loadedAttribute key="name" type="java.lang.String" value="Haftung und Deckung pruefen"/>
+                <loadedAttribute key="incidentId" type="java.lang.String" value="Haftung und Deckung pruefen 1429100563936"/>
+                <predefinedAttribute key="averageCost" type="java.lang.Double" value="10.0"/>
+                <loadedAttribute key="timestamp" type="java.sql.Timestamp" value="2015-04-15 14:22:43.936"/>
+            </activity>
+            <activity>
+                <loadedAttribute key="name" type="java.lang.String" value="Partnerwerkstatt beauftragen"/>
+                <loadedAttribute key="incidentId" type="java.lang.String" value="Partnerwerkstatt beauftragen 1429100575533"/>
+                <predefinedAttribute key="averageCost" type="java.lang.Double" value="200.0"/>
+                <loadedAttribute key="timestamp" type="java.sql.Timestamp" value="2015-04-15 14:22:55.533"/>
+            </activity>
+            <activity>
+                <loadedAttribute key="name" type="java.lang.String" value="Schaden zahlen und schliessen"/>
+                <loadedAttribute key="incidentId" type="java.lang.String" value="Schaden zahlen und schliessen 1429100584856"/>
+                <predefinedAttribute key="averageCost" type="java.lang.Double" value="200.0"/>
+                <loadedAttribute key="timestamp" type="java.sql.Timestamp" value="2015-04-15 14:23:04.856"/>
+            </activity>
+        </case>
+        <case>
+            <loadedAttribute key="insurant" type="java.lang.String" value="Michael Mauser"/>
+            <computedAttribute key="lineage" type="java.lang.String" value="Schaden anlegen;Haftung und Deckung pruefen;Fremdreparatur vornehmen;Schaden zahlen und schliessen;"/>
+            <loadedAttribute key="damageCategory" type="java.lang.String" value="Haftpflicht"/>
+            <loadedAttribute key="lifecycleStatus" type="java.lang.String" value="closed"/>
+            <loadedAttribute key="caseId" type="java.lang.String" value="1429100792875"/>
+            <computedAttribute key="averageCost" type="java.lang.Double" value="330.0"/>
+            <loadedAttribute key="claimant" type="java.lang.String" value="Franziska Albrecht"/>
+            <activity>
+                <loadedAttribute key="name" type="java.lang.String" value="Schaden anlegen"/>
+                <loadedAttribute key="incidentId" type="java.lang.String" value="Schaden anlegen 1429100925570"/>
+                <predefinedAttribute key="averageCost" type="java.lang.Double" value="20.0"/>
+                <loadedAttribute key="timestamp" type="java.sql.Timestamp" value="2015-04-15 14:28:45.57"/>
+            </activity>
+            <activity>
+                <loadedAttribute key="name" type="java.lang.String" value="Haftung und Deckung pruefen"/>
+                <loadedAttribute key="incidentId" type="java.lang.String" value="Haftung und Deckung pruefen 1429100954910"/>
+                <predefinedAttribute key="averageCost" type="java.lang.Double" value="10.0"/>
+                <loadedAttribute key="timestamp" type="java.sql.Timestamp" value="2015-04-15 14:29:14.91"/>
+            </activity>
+            <activity>
+                <loadedAttribute key="name" type="java.lang.String" value="Fremdreparatur vornehmen"/>
+                <loadedAttribute key="incidentId" type="java.lang.String" value="Fremdreparatur vornehmen 1429260043334"/>
+                <predefinedAttribute key="averageCost" type="java.lang.Double" value="100.0"/>
+                <loadedAttribute key="timestamp" type="java.sql.Timestamp" value="2015-04-17 10:40:43.334"/>
+            </activity>
+            <activity>
+                <loadedAttribute key="name" type="java.lang.String" value="Schaden zahlen und schliessen"/>
+                <loadedAttribute key="incidentId" type="java.lang.String" value="Schaden zahlen und schliessen 1429260061117"/>
+                <predefinedAttribute key="averageCost" type="java.lang.Double" value="200.0"/>
+                <loadedAttribute key="timestamp" type="java.sql.Timestamp" value="2015-04-17 10:41:01.117"/>
+            </activity>
+        </case>
+        <case>
+            <loadedAttribute key="insurant" type="java.lang.String" value="Julia Degen"/>
+            <computedAttribute key="lineage" type="java.lang.String" value="Schaden anlegen;Haftung und Deckung pruefen;Fremdreparatur vornehmen;Schaden zahlen und schliessen;"/>
+            <loadedAttribute key="damageCategory" type="java.lang.String" value="Haftpflicht"/>
+            <loadedAttribute key="lifecycleStatus" type="java.lang.String" value="closed"/>
+            <loadedAttribute key="caseId" type="java.lang.String" value="1429260072733"/>
+            <computedAttribute key="averageCost" type="java.lang.Double" value="330.0"/>
+            <loadedAttribute key="claimant" type="java.lang.String" value="Sophie Maurer"/>
+            <activity>
+                <loadedAttribute key="name" type="java.lang.String" value="Schaden anlegen"/>
+                <loadedAttribute key="incidentId" type="java.lang.String" value="Schaden anlegen 1429260258389"/>
+                <predefinedAttribute key="averageCost" type="java.lang.Double" value="20.0"/>
+                <loadedAttribute key="timestamp" type="java.sql.Timestamp" value="2015-04-17 10:44:18.389"/>
+            </activity>
+            <activity>
+                <loadedAttribute key="name" type="java.lang.String" value="Haftung und Deckung pruefen"/>
+                <loadedAttribute key="incidentId" type="java.lang.String" value="Haftung und Deckung pruefen 1429260267531"/>
+                <predefinedAttribute key="averageCost" type="java.lang.Double" value="10.0"/>
+                <loadedAttribute key="timestamp" type="java.sql.Timestamp" value="2015-04-17 10:44:27.531"/>
+            </activity>
+            <activity>
+                <loadedAttribute key="name" type="java.lang.String" value="Fremdreparatur vornehmen"/>
+                <loadedAttribute key="incidentId" type="java.lang.String" value="Fremdreparatur vornehmen 1429260333640"/>
+                <predefinedAttribute key="averageCost" type="java.lang.Double" value="100.0"/>
+                <loadedAttribute key="timestamp" type="java.sql.Timestamp" value="2015-04-17 10:45:33.64"/>
+            </activity>
+            <activity>
+                <loadedAttribute key="name" type="java.lang.String" value="Schaden zahlen und schliessen"/>
+                <loadedAttribute key="incidentId" type="java.lang.String" value="Schaden zahlen und schliessen 1429260346159"/>
+                <predefinedAttribute key="averageCost" type="java.lang.Double" value="200.0"/>
+                <loadedAttribute key="timestamp" type="java.sql.Timestamp" value="2015-04-17 10:45:46.159"/>
+            </activity>
+        </case>
+        <case>
+            <loadedAttribute key="insurant" type="java.lang.String" value="Sabine Vogt"/>
+            <computedAttribute key="lineage" type="java.lang.String" value="Schaden anlegen;Haftung und Deckung pruefen;Fremdreparatur vornehmen;Schaden zahlen und schliessen;"/>
+            <loadedAttribute key="damageCategory" type="java.lang.String" value="Haftpflicht"/>
+            <loadedAttribute key="lifecycleStatus" type="java.lang.String" value="closed"/>
+            <loadedAttribute key="caseId" type="java.lang.String" value="1429260352933"/>
+            <computedAttribute key="averageCost" type="java.lang.Double" value="330.0"/>
+            <loadedAttribute key="claimant" type="java.lang.String" value="Michael Bauer"/>
+            <activity>
+                <loadedAttribute key="name" type="java.lang.String" value="Schaden anlegen"/>
+                <loadedAttribute key="incidentId" type="java.lang.String" value="Schaden anlegen 1429260502753"/>
+                <predefinedAttribute key="averageCost" type="java.lang.Double" value="20.0"/>
+                <loadedAttribute key="timestamp" type="java.sql.Timestamp" value="2015-04-17 10:48:22.753"/>
+            </activity>
+            <activity>
+                <loadedAttribute key="name" type="java.lang.String" value="Haftung und Deckung pruefen"/>
+                <loadedAttribute key="incidentId" type="java.lang.String" value="Haftung und Deckung pruefen 1429260515919"/>
+                <predefinedAttribute key="averageCost" type="java.lang.Double" value="10.0"/>
+                <loadedAttribute key="timestamp" type="java.sql.Timestamp" value="2015-04-17 10:48:35.919"/>
+            </activity>
+            <activity>
+                <loadedAttribute key="name" type="java.lang.String" value="Fremdreparatur vornehmen"/>
+                <loadedAttribute key="incidentId" type="java.lang.String" value="Fremdreparatur vornehmen 1429260648089"/>
+                <predefinedAttribute key="averageCost" type="java.lang.Double" value="100.0"/>
+                <loadedAttribute key="timestamp" type="java.sql.Timestamp" value="2015-04-17 10:50:48.089"/>
+            </activity>
+            <activity>
+                <loadedAttribute key="name" type="java.lang.String" value="Schaden zahlen und schliessen"/>
+                <loadedAttribute key="incidentId" type="java.lang.String" value="Schaden zahlen und schliessen 1429260652273"/>
+                <predefinedAttribute key="averageCost" type="java.lang.Double" value="200.0"/>
+                <loadedAttribute key="timestamp" type="java.sql.Timestamp" value="2015-04-17 10:50:52.273"/>
+            </activity>
+        </case>
+        <case>
+            <loadedAttribute key="insurant" type="java.lang.String" value="Thomas Erlang"/>
+            <computedAttribute key="lineage" type="java.lang.String" value="Schaden anlegen;Haftung und Deckung pruefen;Gutachten beauftragen;Fremdreparatur vornehmen;Schaden zahlen und schliessen;"/>
+            <loadedAttribute key="damageCategory" type="java.lang.String" value="Haftpflicht"/>
+            <loadedAttribute key="lifecycleStatus" type="java.lang.String" value="closed"/>
+            <loadedAttribute key="caseId" type="java.lang.String" value="1429260767992"/>
+            <computedAttribute key="averageCost" type="java.lang.Double" value="530.0"/>
+            <loadedAttribute key="claimant" type="java.lang.String" value="Steffen Vogt"/>
+            <activity>
+                <loadedAttribute key="name" type="java.lang.String" value="Schaden anlegen"/>
+                <loadedAttribute key="incidentId" type="java.lang.String" value="Schaden anlegen 1429260822051"/>
+                <predefinedAttribute key="averageCost" type="java.lang.Double" value="20.0"/>
+                <loadedAttribute key="timestamp" type="java.sql.Timestamp" value="2015-04-17 10:53:42.051"/>
+            </activity>
+            <activity>
+                <loadedAttribute key="name" type="java.lang.String" value="Haftung und Deckung pruefen"/>
+                <loadedAttribute key="incidentId" type="java.lang.String" value="Haftung und Deckung pruefen 1429261578405"/>
+                <predefinedAttribute key="averageCost" type="java.lang.Double" value="10.0"/>
+                <loadedAttribute key="timestamp" type="java.sql.Timestamp" value="2015-04-17 11:06:18.405"/>
+            </activity>
+            <activity>
+                <loadedAttribute key="name" type="java.lang.String" value="Gutachten beauftragen"/>
+                <loadedAttribute key="incidentId" type="java.lang.String" value="Gutachten beauftragen 1429261621547"/>
+                <predefinedAttribute key="averageCost" type="java.lang.Double" value="200.0"/>
+                <loadedAttribute key="timestamp" type="java.sql.Timestamp" value="2015-04-17 11:07:01.547"/>
+            </activity>
+            <activity>
+                <loadedAttribute key="name" type="java.lang.String" value="Fremdreparatur vornehmen"/>
+                <loadedAttribute key="incidentId" type="java.lang.String" value="Fremdreparatur vornehmen 1429261769484"/>
+                <predefinedAttribute key="averageCost" type="java.lang.Double" value="100.0"/>
+                <loadedAttribute key="timestamp" type="java.sql.Timestamp" value="2015-04-17 11:09:29.484"/>
+            </activity>
+            <activity>
+                <loadedAttribute key="name" type="java.lang.String" value="Schaden zahlen und schliessen"/>
+                <loadedAttribute key="incidentId" type="java.lang.String" value="Schaden zahlen und schliessen 1429261773075"/>
+                <predefinedAttribute key="averageCost" type="java.lang.Double" value="200.0"/>
+                <loadedAttribute key="timestamp" type="java.sql.Timestamp" value="2015-04-17 11:09:33.075"/>
+            </activity>
+        </case>
+        <case>
+            <loadedAttribute key="insurant" type="java.lang.String" value="Bernhard Glueck"/>
+            <computedAttribute key="lineage" type="java.lang.String" value="Schaden anlegen;Haftung und Deckung pruefen;Partnerwerkstatt beauftragen;Schaden zahlen und schliessen;"/>
+            <loadedAttribute key="damageCategory" type="java.lang.String" value="Haftpflicht"/>
+            <loadedAttribute key="lifecycleStatus" type="java.lang.String" value="closed"/>
+            <loadedAttribute key="caseId" type="java.lang.String" value="1429262767604"/>
+            <computedAttribute key="averageCost" type="java.lang.Double" value="430.0"/>
+            <loadedAttribute key="claimant" type="java.lang.String" value="Marianne Pech"/>
+            <activity>
+                <loadedAttribute key="name" type="java.lang.String" value="Schaden anlegen"/>
+                <loadedAttribute key="incidentId" type="java.lang.String" value="Schaden anlegen 1429262807299"/>
+                <predefinedAttribute key="averageCost" type="java.lang.Double" value="20.0"/>
+                <loadedAttribute key="timestamp" type="java.sql.Timestamp" value="2015-04-17 11:26:47.299"/>
+            </activity>
+            <activity>
+                <loadedAttribute key="name" type="java.lang.String" value="Haftung und Deckung pruefen"/>
+                <loadedAttribute key="incidentId" type="java.lang.String" value="Haftung und Deckung pruefen 1429262812347"/>
+                <predefinedAttribute key="averageCost" type="java.lang.Double" value="10.0"/>
+                <loadedAttribute key="timestamp" type="java.sql.Timestamp" value="2015-04-17 11:26:52.347"/>
+            </activity>
+            <activity>
+                <loadedAttribute key="name" type="java.lang.String" value="Partnerwerkstatt beauftragen"/>
+                <loadedAttribute key="incidentId" type="java.lang.String" value="Partnerwerkstatt beauftragen 1429775266800"/>
+                <predefinedAttribute key="averageCost" type="java.lang.Double" value="200.0"/>
+                <loadedAttribute key="timestamp" type="java.sql.Timestamp" value="2015-04-23 09:47:46.8"/>
+            </activity>
+            <activity>
+                <loadedAttribute key="name" type="java.lang.String" value="Schaden zahlen und schliessen"/>
+                <loadedAttribute key="incidentId" type="java.lang.String" value="Schaden zahlen und schliessen 1429775272464"/>
+                <predefinedAttribute key="averageCost" type="java.lang.Double" value="200.0"/>
+                <loadedAttribute key="timestamp" type="java.sql.Timestamp" value="2015-04-23 09:47:52.464"/>
+            </activity>
+        </case>
+    </caseBase>
+</cbml>

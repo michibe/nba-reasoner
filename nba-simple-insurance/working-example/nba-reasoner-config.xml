@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<nbaReasonerConfig>
+
+
+
+    <cbrConfig>
+        <caseSimilarityMeasureConfigs>
+
+            <caseSimilarityMeasureConfig attributeKey="lineage" similarityMeasureClass="org.hhz.nbareasoner.config.impl.advanced.cbr.similaritymeasures.LevenshteinLineage" weightDefault="1.0" weightConfigurable="false" />
+
+            <caseSimilarityMeasureConfig attributeKey="damageCategory" similarityMeasureClass="org.hhz.nbareasoner.config.impl.advanced.cbr.similaritymeasures.EqualLiteral" weightDefault="1.0" weightConfigurable="false" filterOnSimilarityMeasureResult="=1">
+              
+
+                    </caseSimilarityMeasureConfig>
+
+        </caseSimilarityMeasureConfigs>
+    </cbrConfig>
+
+
+
+
+    <nbaConfig>
+
+        <nbaRatingConfigs>
+
+            <nbaRatingConfig ratingClass="org.hhz.nbareasoner.config.impl.advanced.nba.ratings.SimpleOccurrenceRating" weightDefault="0.3" filterOnRatingResult=">=1" displayInOverview="true"  >
+          
+</nbaRatingConfig>
+            <nbaRatingConfig ratingClass="org.hhz.nbareasoner.config.impl.advanced.nba.ratings.AverageCostRating" weightDefault="1.0"  filterOnRatingResult=">0" /> <!-- wenn hier ein rating filtert werden nachfolgende ratings nicht mehr ausgeführt für das gefilterte Proposal-->
+
+        </nbaRatingConfigs>
+    </nbaConfig>
+
+
+</nbaReasonerConfig>

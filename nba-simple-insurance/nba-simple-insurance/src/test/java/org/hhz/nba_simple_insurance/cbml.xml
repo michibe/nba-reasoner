@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<cbml>
+    <caseBaseDefinition>
+        <computedAttributeDefinition key="numberOfCases" type="java.lang.Integer" value="0">
+            <computation class="org.hhz.nbareasoner.cbml.impl.advanced.computing.computations.CasesIncidentsNumberComputation">
+            </computation>
+        </computedAttributeDefinition>
+
+
+        <caseDefinition>
+            <computedAttributeDefinition key="lineage" type="java.lang.String" value="besipielwert zum testen">
+                <computation class="org.hhz.nbareasoner.cbml.impl.advanced.computing.computations.LineageAttributeComputation">
+                </computation>
+            </computedAttributeDefinition>
+            <computedAttributeDefinition key="averageCost" type="java.lang.Double" value="0.0">
+                <computation class="org.hhz.nbareasoner.cbml.impl.advanced.computing.computations.SumUpIncidentAttributesComputation">
+                    <computationParameter key="sumAttribute" value="averageCost"/>
+                 </computation>
+                <keyAlias key="en" alias="Average Cost"/>
+                <keyAlias key="de" alias="Durchschnittliche Kosten"/>
+            </computedAttributeDefinition>
+            <loadedAttributeDefinition key="caseId" type="java.lang.String" value="id">
+                <loadingSourceClosedCase class="org.hhz.nbareasoner.cbml.impl.advanced.loading.loader.AttributeLoaderCsvJdbc">
+                    <loadingSourceParameter key="src" value="file:///${user.dir}/src/test/java/org/hhz/nba_simple_insurance/case-log.csv"/>
+                    <loadingSourceParameter key="separator" value=";"/>
+                    <loadingSourceParameter key="sqlSelect" value="Select  caseId as caseId, caseId as value from case-log where lifecycleStatus='closed' group by caseId "/>
+                </loadingSourceClosedCase>
+            </loadedAttributeDefinition>
+            <loadedAttributeDefinition key="lifecycleStatus" type="java.lang.String" value="lifecycleStatus">
+                <loadingSourceClosedCase class="org.hhz.nbareasoner.cbml.impl.advanced.loading.loader.AttributeLoaderCsvJdbc">
+                    <loadingSourceParameter key="src" value="file:///${user.dir}/src/test/java/org/hhz/nba_simple_insurance/case-log.csv"/>
+                    <loadingSourceParameter key="separator" value=";"/>
+                    <loadingSourceParameter key="sqlSelect" value="Select  caseId as caseId, lifecycleStatus as value from case-log where lifecycleStatus='closed' "/>
+                </loadingSourceClosedCase>
+                <loadingSourceOpenedCase class="org.hhz.nbareasoner.cbml.impl.advanced.loading.loader.AttributeLoaderCsvJdbc">
+                    <loadingSourceParameter key="src" value="file:///${user.dir}/src/test/java/org/hhz/nba_simple_insurance/case-log.csv"/>
+                    <loadingSourceParameter key="separator" value=";"/>
+                    <loadingSourceParameter key="sqlSelect" value="Select  caseId as caseId, lifecycleStatus as value from case-log where caseId='${openedCaseId}' "/>
+                </loadingSourceOpenedCase>
+                <valueAlias key="en" alias="open" value="open"/>
+                <valueAlias key="en" alias="closed" value="closed"/>
+                <valueAlias key="de" alias="offen" value="open"/>
+                <valueAlias key="de" alias="abgeschlossen" value="closed"/>
+            </loadedAttributeDefinition>
+
+            <loadedAttributeDefinition key="insurant" type="java.lang.String" value="insurant">
+                <loadingSourceClosedCase class="org.hhz.nbareasoner.cbml.impl.advanced.loading.loader.AttributeLoaderCsvJdbc">
+                    <loadingSourceParameter key="src" value="file:///${user.dir}/src/test/java/org/hhz/nba_simple_insurance/case-log.csv"/>
+                    <loadingSourceParameter key="separator" value=";"/>
+                    <loadingSourceParameter key="sqlSelect" value="Select  caseId, insurant as value from case-log where lifecycleStatus='closed' "/>
+                </loadingSourceClosedCase>
+                <loadingSourceOpenedCase class="org.hhz.nbareasoner.cbml.impl.advanced.loading.loader.AttributeLoaderCsvJdbc">
+                    <loadingSourceParameter key="src" value="file:///${user.dir}/src/test/java/org/hhz/nba_simple_insurance/case-log.csv"/>
+                    <loadingSourceParameter key="separator" value=";"/>
+                    <loadingSourceParameter key="sqlSelect" value="Select  caseId, insurant as value from case-log where caseId='${openedCaseId}' "/>
+                </loadingSourceOpenedCase>
+            </loadedAttributeDefinition>
+
+            <loadedAttributeDefinition key="claimant" type="java.lang.String" value="claimant">
+                <loadingSourceClosedCase class="org.hhz.nbareasoner.cbml.impl.advanced.loading.loader.AttributeLoaderCsvJdbc">
+                    <loadingSourceParameter key="src" value="file:///${user.dir}/src/test/java/org/hhz/nba_simple_insurance/case-log.csv"/>
+                    <loadingSourceParameter key="separator" value=";"/>
+                    <loadingSourceParameter key="sqlSelect" value="Select  caseId, claimant as value from case-log where lifecycleStatus='closed' "/>
+                </loadingSourceClosedCase>
+                <loadingSourceOpenedCase class="org.hhz.nbareasoner.cbml.impl.advanced.loading.loader.AttributeLoaderCsvJdbc">
+                    <loadingSourceParameter key="src" value="file:///${user.dir}/src/test/java/org/hhz/nba_simple_insurance/case-log.csv"/>
+                    <loadingSourceParameter key="separator" value=";"/>
+                    <loadingSourceParameter key="sqlSelect" value="Select  caseId, claimant as value from case-log where caseId='${openedCaseId}' "/>
+                </loadingSourceOpenedCase>
+            </loadedAttributeDefinition>
+
+            <loadedAttributeDefinition key="damageCategory" type="java.lang.String" value="damageCategory">
+                <loadingSourceClosedCase class="org.hhz.nbareasoner.cbml.impl.advanced.loading.loader.AttributeLoaderCsvJdbc">
+                    <loadingSourceParameter key="src" value="file:///${user.dir}/src/test/java/org/hhz/nba_simple_insurance/case-log.csv"/>
+                    <loadingSourceParameter key="separator" value=";"/>
+                    <loadingSourceParameter key="sqlSelect" value="Select  caseId, damageCategory as value from case-log where lifecycleStatus='closed' "/>
+                </loadingSourceClosedCase>
+                <loadingSourceOpenedCase class="org.hhz.nbareasoner.cbml.impl.advanced.loading.loader.AttributeLoaderCsvJdbc">
+                    <loadingSourceParameter key="src" value="file:///${user.dir}/src/test/java/org/hhz/nba_simple_insurance/case-log.csv"/>
+                    <loadingSourceParameter key="separator" value=";"/>
+                    <loadingSourceParameter key="sqlSelect" value="Select  caseId, damageCategory as value from case-log where caseId='${openedCaseId}' "/>
+                </loadingSourceOpenedCase>
+            </loadedAttributeDefinition>
+
+
+            <activityDefinition>
+
+                <loadedAttributeDefinition key="name" type="java.lang.String" value="name">
+                    <loadingSourceClosedCase class="org.hhz.nbareasoner.cbml.impl.advanced.loading.loader.AttributeLoaderCsvJdbc">
+                        <loadingSourceParameter key="src" value="file:///${user.dir}/src/test/java/org/hhz/nba_simple_insurance/activity-log.csv"/>
+                        <loadingSourceParameter key="separator" value=";"/>
+                        <loadingSourceParameter key="sqlSelect" value="Select  caseId, activityName + ' ' +timestamp as incidentId , activityName as value from activity-log"/>
+                    </loadingSourceClosedCase>
+                    <loadingSourceOpenedCase class="org.hhz.nbareasoner.cbml.impl.advanced.loading.loader.AttributeLoaderCsvJdbc">
+                        <loadingSourceParameter key="src" value="file:///${user.dir}/src/test/java/org/hhz/nba_simple_insurance/activity-log.csv"/>
+                        <loadingSourceParameter key="separator" value=";"/>
+                        <loadingSourceParameter key="sqlSelect" value="Select  caseId, activityName + ' ' +timestamp as incidentId , activityName as value from activity-log where caseId = '${openedCaseId}'"/>
+                    </loadingSourceOpenedCase>
+                </loadedAttributeDefinition>
+                <loadedAttributeDefinition key="incidentId" type="java.lang.String" value="incidentId">
+                    <loadingSourceClosedCase class="org.hhz.nbareasoner.cbml.impl.advanced.loading.loader.AttributeLoaderCsvJdbc">
+                        <loadingSourceParameter key="src" value="file:///${user.dir}/src/test/java/org/hhz/nba_simple_insurance/activity-log.csv"/>
+                        <loadingSourceParameter key="separator" value=";"/>
+                        <loadingSourceParameter key="sqlSelect" value="Select  caseId, activityName + ' ' +timestamp as incidentId , activityName + ' ' +timestamp as value from activity-log"/>
+                    </loadingSourceClosedCase>
+                    <loadingSourceOpenedCase class="org.hhz.nbareasoner.cbml.impl.advanced.loading.loader.AttributeLoaderCsvJdbc">
+                        <loadingSourceParameter key="src" value="file:///${user.dir}/src/test/java/org/hhz/nba_simple_insurance/activity-log.csv"/>
+                        <loadingSourceParameter key="separator" value=";"/>
+                        <loadingSourceParameter key="sqlSelect" value="Select  caseId, activityName + ' ' +timestamp as incidentId , activityName + ' ' +timestamp as value from activity-log where caseId = '${openedCaseId}'"/>
+                    </loadingSourceOpenedCase>
+                </loadedAttributeDefinition>
+                <loadedAttributeDefinition key="timestamp" type="java.sql.Timestamp" converterMethod="org.hhz.nbareasoner.cbml.impl.base.definition.attributedefinition.JavaTypeConverter.timestampFromString" value="timestamp">
+                    <loadingSourceClosedCase class="org.hhz.nbareasoner.cbml.impl.advanced.loading.loader.AttributeLoaderCsvJdbc">
+                        <loadingSourceParameter key="src" value="file:///${user.dir}/src/test/java/org/hhz/nba_simple_insurance/activity-log.csv"/>
+                        <loadingSourceParameter key="separator" value=";"/>
+                        <loadingSourceParameter key="sqlSelect" value="Select  caseId, activityName + ' ' +timestamp as incidentId , timestamp as value from activity-log"/>
+                    </loadingSourceClosedCase>
+                    <loadingSourceOpenedCase class="org.hhz.nbareasoner.cbml.impl.advanced.loading.loader.AttributeLoaderCsvJdbc">
+                        <loadingSourceParameter key="src" value="file:///${user.dir}/src/test/java/org/hhz/nba_simple_insurance/activity-log.csv"/>
+                        <loadingSourceParameter key="separator" value=";"/>
+                        <loadingSourceParameter key="sqlSelect" value="Select  caseId, activityName + ' ' +timestamp as incidentId , timestamp as value from activity-log where caseId = '${openedCaseId}'"/>
+                    </loadingSourceOpenedCase>
+                </loadedAttributeDefinition>
+                <predefinedAttributeDefinition key="averageCost" type="java.lang.Double" value="200">
+                    <predefinition perAttributeKey="name">
+                        <predefinitionValue perAttributeValue="Haftung und Deckung pruefen" predefineValue="10"/>
+                        <predefinitionValue perAttributeValue="Schaden anlegen" predefineValue="20"/>
+                        <predefinitionValue perAttributeValue="Fremdreparatur vornehmen" predefineValue="100"/>
+                    </predefinition>
+                </predefinedAttributeDefinition>
+            </activityDefinition>
+
+        </caseDefinition>
+    </caseBaseDefinition>
+    <caseBase>
+
+    </caseBase>
+</cbml>
