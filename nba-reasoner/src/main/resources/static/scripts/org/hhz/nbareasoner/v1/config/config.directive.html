@@ -1,0 +1,67 @@
+<div class="config-container">
+    <div class="config-container-header">
+
+    </div>
+    <div class="config-container-body">
+
+        <div class="similarities-config-container" >
+            <div class="similarities-config-container-header" >
+                <span data-ng-style="{'color': colorService.getColor1()}">Similarity Measure Config</span>
+            </div>
+            <div class="similarities-config-container-body">
+                <div class="similarity-config-container" data-ng-style="{'border-color': colorService.getColor1()}" data-ng-repeat="caseSimilarityMeasureConfig in cbrConfig.caseSimilarityMeasureConfigs">
+                    <div class="similarity-config-container-body">
+                        <div class="weight-container">
+                            weight:  <input data-ng-style="{'background-color': colorService.getColor1()}" class="weight" type="number" ng-readonly="!caseSimilarityMeasureConfig.weightConfigurable"
+                                            data-ng-model="caseSimilarityMeasureConfig.weightCustom" data-ng-change="reset()" step="0.1" />
+                        </div>
+                        <div>
+                            {{caseSimilarityMeasureConfig.attributeKey}}
+                        </div>
+                        <div class="clear"/>
+                        <div>
+                            {{caseSimilarityMeasureConfig.similarityMeasureClass}}
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="similarities-config-container-footer">
+            </div>
+        </div>
+
+        <div class="nbas-config-container" >
+            <div class="nbas-config-container-header" >
+                <span data-ng-style="{'color': colorService.getColor1()}">NBA Rating Config</span>
+            </div>
+            <div class="nbas-config-container-body">
+                <div class="nba-config-container" data-ng-style="{'border-color': colorService.getColor1()}" data-ng-repeat="nbaRatingConfig in nbaConfig.nbaRatingConfigs">
+                    <div class="nba-config-container-body">
+                        <div class="weight-container">
+                            weight:  <input data-ng-style="{'background-color': colorService.getColor1()}" class="weight" type="number" ng-readonly="!nbaRatingConfig.weightConfigurable"
+                                            data-ng-model="nbaRatingConfig.weightCustom"  data-ng-change="reset()" step="0.1"/>
+                        </div>
+
+                        <div class="clear"/>
+                        <div>
+                            {{nbaRatingConfig.ratingClass}}
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="similarities-config-container-footer">
+            </div>
+        </div>
+
+
+        <div >
+
+
+        </div>
+
+
+    </div>
+
+    <div class="config-container-footer"></div>
+</div>

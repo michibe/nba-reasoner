@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html data-ng-app="app">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <link rel="stylesheet" href="assets/styles/nbareasoner.css"/>
+    <script src="assets/libs/org/google/jquery.js"></script>
+    <script src="assets/libs/org/google/angular.js"></script>
+    <script src="assets/libs/org/google/angular-route.js"></script>
+    <script src="scripts/org/hhz/nbareasoner/v1/case/case.module.js"></script>
+    <script src="scripts/org/hhz/nbareasoner/v1/similarity/similarity.module.js"></script>
+    <script src="scripts/org/hhz/nbareasoner/v1/nba/nba.module.js"></script>
+    <script src="scripts/org/hhz/nbareasoner/v1/config/config.module.js"></script>
+    <script src="app.js"></script>
+
+    <script>
+
+
+    $(document).ready(function () {
+
+            $(document).on('click', '.toggle-initiator-next', function () {
+                $(this).find(".div-toggle-down").toggle();
+                $(this).find(".div-toggle-up").toggle();
+
+                $(this).nextAll(".toggle-show.flap").toggle();
+                $(this).nextAll(".toggle-hide.flap").toggle();
+
+            $(this).nextAll(".toggle-show.slide").slideToggle();
+            $(this).nextAll(".toggle-hide.slide").slideToggle();
+
+            });
+
+        $(document).on('click', '.toggle-initiator-parent-next', function () {
+                $(this).find(".div-toggle-down").toggle();
+                $(this).find(".div-toggle-up").toggle();
+
+                $(this).parent().nextAll(".toggle-show.flap").toggle();
+                $(this).parent().nextAll(".toggle-hide.flap").toggle();
+
+            $(this).parent().nextAll(".toggle-show.slide").slideToggle();
+            $(this).parent().nextAll(".toggle-hide.slide").slideToggle();
+
+            });
+
+        calculateHeight();
+calculateScrollHideSize();
+
+        });
+
+
+
+    function calculateHeight()
+    {
+
+        var element = document.getElementById("div-main-noScroll");
+
+
+        element.setAttribute("style","height:"+document.body.offsetHeight+"px");
+
+    }
+
+
+    function calculateScrollHideSize() {
+       var elements = document.getElementsByClassName("hide-scroll");
+
+       for(var i = 0; i<elements.length; i++)
+       {
+
+           var offsetWidth = elements[i].offsetWidth;
+           var clientWidth = elements[i].clientWidth;
+
+           var scrollbarWidth =  offsetWidth-clientWidth;
+
+           var finalWidth = elements[i].parentElement.offsetWidth +scrollbarWidth;
+
+
+           elements[i].setAttribute("style","width:"+finalWidth+"px");
+       };
+
+
+
+};
+
+
+    </script>
+</head>
+<body onresize="calculateScrollHideSize()">
+
+
+
+<div id="div-main-noScroll" ng-controller="appController">
+
+
+
+    <div id="div-main-scroll" class="hide-scroll ">
+
+
+        <div id="div-header-fixed" >
+            <div id="header-fixed" data-ng-style="{'background-color': colorService.getColor1()}" >
+                <input  class="input-caseid" type="text" placeholder="Insert Case Id and press Enter" data-ng-keydown="enterFunction($event)"
+                       data-ng-class="caseSearchId == 'Enter Case Id' ? 'color5' : 'color2'" data-ng-model="caseSearchId" data-ng-change="reset()"/>
+
+            </div>
+        </div>
+
+        <div id="content-area" data-ng-style="{'background-color': colorService.getColor1()}" >
+
+
+            <div class="content-segment">
+
+                <div class="content-segment-marker config toggle-initiator-next" data-ng-style="{'border-color': colorService.getColor2()}">
+                    <div class="segment-header-marker" data-ng-style="{'background-color': colorService.getColor2()}" ></div>
+                </div>
+                <div class="content-segment-header-table-wrapper">
+                <div class="content-segment-header toggle-initiator-parent-next">
+                    <h2 class="color1 ">Settings</h2>
+                </div>
+</div>
+                <div class=" content-segment-body toggle-show flap">
+
+
+                    <org-hhz-nbareasoner-config-directive></org-hhz-nbareasoner-config-directive>
+
+
+                </div>
+
+
+            </div>
+
+            <div class="content-segment">
+
+                <div class="content-segment-marker active-case toggle-initiator-next" data-ng-style="{'border-color': colorService.getColor3()}">
+                    <div class="segment-header-marker" data-ng-style="{'background-color': colorService.getColor3()}" ></div>
+                </div>
+                <div class="content-segment-header-table-wrapper">
+                    <div class="content-segment-header toggle-initiator-parent-next">
+                        <h2 class="color1 ">Searched Case</h2>
+                    </div>
+                </div>
+                <div class=" content-segment-body toggle-show flap">
+
+
+                    <org-hhz-nbareasoner-case-directive ng-if="activeCase!=null" case="activeCase"></org-hhz-nbareasoner-case-directive>
+
+
+                </div>
+
+
+            </div>
+
+            <div class="content-segment">
+
+                <div class="content-segment-marker similar-cases toggle-initiator-next" data-ng-style="{'border-color': colorService.getColor4()}">
+                    <div class="segment-header-marker " data-ng-style="{'background-color': colorService.getColor4()}"></div>
+                </div>
+                <div class="content-segment-header-table-wrapper">
+                    <div class="content-segment-header  toggle-initiator-parent-next">
+                        <h2 class="color1"> {{similarCases.length}} Similar Cases </h2>
+                    </div>
+                </div>
+                <div class=" content-segment-body toggle-show flap">
+
+
+                    <org-hhz-nbareasoner-similar-cases-directive ng-if="activeCase!=null" similar-cases="similarCases"></org-hhz-nbareasoner-similar-cases-directive>
+
+
+                </div>
+
+
+            </div>
+
+            <div class="content-segment">
+
+                <div class="content-segment-marker nbas toggle-initiator-next"  data-ng-style="{'border-color': colorService.getColor5()}">
+                    <div class="segment-header-marker "  data-ng-style="{'background-color': colorService.getColor5()}"></div>
+                </div>
+
+                <div class="content-segment-header-table-wrapper">
+                    <div class="content-segment-header toggle-initiator-parent-next ">
+                        <h2 class="color1 ">{{nbaProposals.length}} NBAs</h2>
+                    </div>
+                </div>
+                    <div class=" content-segment-body toggle-show flap">
+
+
+                    <org-hhz-nbareasoner-nbas-directive ng-if="activeCase!=null" nba-proposals="nbaProposals"></org-hhz-nbareasoner-nbas-directive>
+
+
+                </div>
+
+
+            </div>
+
+
+
+        </div>
+
+        <div id="div-footer" data-ng-style="{'background-color': colorService.getColor1()}" class="color1">
+            Copyright 2015 Michael Behr  -- Icon made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed under <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0">CC BY 3.0</a>
+        </div>
+
+
+    </div>
+
+
+
+
+    </div>
+
+</body>
+</html>

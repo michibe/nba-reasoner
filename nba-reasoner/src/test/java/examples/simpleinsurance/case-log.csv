@@ -1,0 +1,11 @@
+caseId;insurant;claimant;damageCategory;damageObject;reserve;description;lifecycleStatus
+1429099650263;Hermann Mueller;Thorsten Bez;Haftpflicht;Motorhaube;200;Herr Mueller ist Herrn Bez alkoholisiert auf die Motorhaube gefallen.;closed
+1429100214541;Thomas Erbrecht;Hans Bayer;Vollkasko;Ruecklicht links;190;Herr Erbrecht ist Herrn Bayer beim ausparken gegen das linke Ruecklicht gefahren.;closed
+1429100460141;Franz Mayer;Stefan Kraus;Haftpflicht;Motorhaube;210;Herr Mayer hat beim Umzug einen Blumentopf aus dem dritten Stock auf die Motorhaube von Herrn Kraus fallen lassen.;closed
+1429100792875;Michael Mauser;Franziska Albrecht;Haftpflicht;Tuere links;200;Herr Mauser setzt zurueck und drueckt die Fahrerseite von Frau Albrecht ein.;closed
+1429260072733;Julia Degen;Sophie Maurer;Haftpflicht;Tuere links;230;Frau Degen oeffnete die Fahrert?re, als Frau Maurer etwas zu schnell vorbei f?hrt und die Tuere verbiegt.;closed
+1429260352933;Sabine Vogt;Michael Bauer;Haftpflicht;Motorhaube;190;Frau Vogt faehrt los, dabei vergisst Sie das fahrrad auf ihrem Dach fest zu machen. Dieses faellt nach hinten auf die Motorhaube von Herrn Bauer.;closed
+1429260767992;Thomas Erlang;Steffen Vogt;Haftpflicht;Tuere rechts;200;Herr Erlang f?hrt mit dem Fahrrad in die T?re von Herrn Vogt.;closed
+1429262767604;Bernhard Glueck;Marianne Pech;Haftpflicht;Ruecklicht links;190;Herr Glueck kommt mit 3 Meter langen Dachlatten aus dem Baumarkt. Beim umdrehen schlaegt er damit ausversehen das Rueklicht von Frau Pech ein.;closed
+1429736615646;Max M?ller;Sandra Reiner;Haftpflicht;Tuere links;200;Her Mueller spielt mit seinem Sohn Fussball und schiesst den Ball mit voller Wucht gegen die Fahrertuere von Frau Reiner.;open
+1429736815646;Max M?ller;Sandra Reiner;Haftpflicht;Tuere links;200;Her Mueller spielt mit seinem Sohn Fussball und schiesst den Ball mit voller Wucht gegen die Fahrertuere von Frau Reiner.;open

@@ -1,0 +1,803 @@
+
+* {
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
+input
+{
+
+background: white;
+}
+
+
+
+html
+{
+    position: relative;
+    padding: 0px;
+    margin: 0px;
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    position: relative;
+    padding: 0px;
+    margin: 0px;
+    width: 100%;
+    height: 100%;
+
+    font-size: 18px;
+}
+
+div {
+    display: block;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+
+#div-main-noScroll {
+    position: relative;
+
+
+    overflow: hidden;
+    width: 100%;
+    max-height: 100%;
+
+}
+
+#div-main-scroll{
+
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+    -webkit-box-sizing: content-box;
+        -moz-box-sizing: content-box;
+        box-sizing: content-box;
+}
+
+
+#div-header-fixed
+{
+    position: fixed;
+    width: 100%;
+
+   z-index: 20;
+
+}
+
+#header-fixed
+{
+    position: relative;
+    padding: 4px;
+    margin-right: 52px;
+}
+
+
+#content-area
+{
+position: relative;
+
+
+padding-top: 30px;
+margin-right: 52px;
+}
+
+
+
+.content-segment{
+position: relative;
+width: 100%;
+padding-left: 4px;
+padding-right: 4px;
+
+    margin-bottom: 2px;
+}
+
+
+.content-segment-header-table-wrapper
+{
+    display: table;
+    width: 100%
+}
+
+.content-segment-header
+{
+    display: table-cell;
+position: relative;
+width: 100%;
+    vertical-align: middle;
+    text-align: right;
+    height: 40px;
+}
+
+
+
+
+.content-segment-body
+{
+position: relative;
+width: 100%;
+
+}
+
+
+
+
+
+
+
+
+#div-header-full {
+    position: relative;
+    width: 100%;
+    height: 10%;
+  /*  background-color: #ffa424;*/
+    padding:2px;
+}
+
+#div-header{
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    height: auto;
+}
+
+
+
+#div-body {
+    position: relative;
+
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    height: auto;
+
+}
+
+#div-footer{
+    position: relative;
+
+
+    margin-right: 52px;
+   text-align: center;
+    font-size:50%;
+    padding: 2px;
+}
+
+
+
+#div-footer a
+{
+
+color: white;
+}
+
+.input-caseid {
+    position: relative;
+    box-sizing: border-box;
+
+    width: 100%;
+
+
+    margin-left: auto;
+    margin-right: auto;
+
+    border: none;
+
+    padding: 4px;
+border-radius: 1px;
+    -webkit-box-shadow: 0px 3px 4px -3px rgba(0, 0, 0, 0.43);
+    -moz-box-shadow: 0px 3px 4px -3px rgba(0, 0, 0, 0.43);
+    box-shadow: 0px 3px 4px -3px rgba(0, 0, 0, 0.43);
+
+
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    height: auto;
+    margin-top: 4px;
+    padding: 4px;
+    border-bottom: 1px solid;
+
+
+
+}
+
+.container-header {
+    position: relative;
+}
+
+.container-header {
+    position: relative;
+}
+
+.container-body {
+    position: relative;
+}
+
+.container-footer {
+    position: relative;
+}
+
+
+
+.ul-case-attributes, .ul-event-attributes {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    font-size: 70%;
+    background: none;
+    text-align: left;
+}
+
+.ul-case-attributes .span-case-attribute-key, .ul-event-attributes .span-event-attribute-key {
+    font-weight: bold;
+}
+
+.div-event {
+    position: relative;
+    width: 95%;
+    padding: 2px;
+    background-color: #E7E7E7;
+    border-radius: 6px;
+    text-align: center;
+    -webkit-box-shadow: 0px 3px 4px -3px rgba(0, 0, 0, 0.43);
+    -moz-box-shadow: 0px 3px 4px -3px rgba(0, 0, 0, 0.43);
+    box-shadow: 0px 3px 4px -3px rgba(0, 0, 0, 0.43);
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    overflow: hidden;
+}
+
+.clear {
+    clear: both;
+}
+
+.clearfix:after {
+    content: ".";
+    display: block;
+    clear: both;
+    font-size: 0;
+    height: 0;
+    visibility: hidden;
+    color: dimgray;
+}
+
+.div-toggle-down, .div-toggle-up {
+    float: right;
+    font-size: 90%;
+    font-weight: bold;
+    margin: 0;
+    color: dimgray;
+}
+
+/* alles was getoggelt werden soll bekommt toggel hid oder toggle show das sagt wie es starten soll*/
+.toggle-hide {
+    display: none;
+}
+
+.toggle-show {
+
+}
+
+.toggle-initiator-next, .toggle-initiator-parent-next
+{
+    cursor: pointer;
+}
+
+.arrow-down {
+    text-align: center;
+
+}
+
+.hide
+{
+    display:none;
+}
+
+/*für custom scrollbalken*/
+#mCSB_1_container {
+    margin-right: 0px;
+}
+
+.mCS-minimal.mCSB_scrollTools .mCSB_dragger .mCSB_dragger {
+    background-color: grey;
+    width: 3px;
+}
+
+.mCS-minimal.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {
+    background-color: grey;
+    width: 3px;
+}
+
+.mCS-minimal.mCSB_scrollTools .mCSB_draggerRail {
+    background: none;
+}
+
+.mCS-minimal.mCSB_scrollTools.mCSB_1_scrollbar.mCS-minimal.mCSB_scrollTools_vertical {
+    margin: 0px;
+    right: -11px;
+}
+
+
+
+
+.config-container
+{
+    position: relative;
+    background-color: white;
+    font-size: 80%;
+    padding:4px;
+    width: 100%;
+    word-break:break-all;
+    word-wrap:break-word;
+}
+
+
+.similarities-config-container-header
+{
+    text-align: center;
+    font-weight: bold;
+
+}
+
+.similarities-config-container
+{
+    padding-top: 5px;
+}
+
+.nbas-config-container
+{
+    padding-top: 5px;
+}
+
+.similarity-config-container
+{
+border: 1px solid ;
+margin-bottom: 2px;
+padding: 2px;
+    font-size: 90%;
+}
+
+.nbas-config-container-header
+{
+    text-align: center;
+    font-weight: bold;
+}
+
+.nba-config-container
+{
+border: 1px solid ;
+margin-bottom: 2px;
+padding: 2px;
+    font-size: 90%;
+
+}
+
+.weight-container
+{
+    float: right;
+}
+
+input.weight
+{
+    width: 40px;
+    border: none;
+    color: white;
+    border-radius: 2px;
+
+}
+input.weight[readonly]
+{
+   opacity: 0.6;
+
+}
+
+
+.case-container {
+    position: relative;
+    background-color: none;
+
+
+    width: 100%;
+    margin-top:8px;
+
+}
+
+
+.case-container-header {
+
+    background-color: none;
+    width: 65%;
+    max-width: 300px;
+    height: auto;
+
+    margin-left: 5px;
+    background: url(../images/triangle.svg);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+
+}
+
+.case-container-body
+{
+    position: relative;
+    width: 100%;
+    background-color: white;
+    padding: 4px 4px 10px;
+     border-radius: 1px;
+     -webkit-box-shadow: 0px 3px 4px -3px rgba(0, 0, 0, 0.43);
+        -moz-box-shadow: 0px 3px 4px -3px rgba(0, 0, 0, 0.43);
+        box-shadow: 0px 3px 4px -3px rgba(0, 0, 0, 0.43);
+}
+
+
+.similar-cases-container
+{
+
+}
+
+.similar-cases-container-body
+{
+
+}
+
+.similar-case-container
+{
+
+margin-bottom: 10px;
+
+
+}
+
+.similar-case-container-body
+{
+
+
+
+}
+
+.nbas-container
+{
+
+}
+
+.nbas-container-body
+{
+padding-bottom: 5px;
+}
+
+.nba-container
+{
+background-color: white;
+margin-bottom: 10px;
+border-radius: 5px;
+}
+
+
+
+.nba-container-header {
+
+     background-color: none;
+     width: 100%;
+
+
+ }
+
+ .nba-container-body
+ {
+     position: relative;
+     width: 100%;
+     padding: 4px 4px 10px;
+      border-radius: 1px;
+      -webkit-box-shadow: 0px 3px 4px -3px rgba(0, 0, 0, 0.43);
+         -moz-box-shadow: 0px 3px 4px -3px rgba(0, 0, 0, 0.43);
+         box-shadow: 0px 3px 4px -3px rgba(0, 0, 0, 0.43);
+ }
+
+
+
+
+.case-closed
+{
+    color: grey;
+}
+.case-opened
+{
+    color: green;
+}
+
+h2
+{
+    margin:0px;
+   padding:0px;
+    font-size: 70%;
+    font-weight: bold;
+}
+
+h3
+{
+    text-align: center;
+    font-size: 80%;
+
+    margin:0;
+    padding:0;
+
+
+}
+h4 {
+
+    font-size: 85%;
+
+    margin: 0px;
+    padding: 0px;
+    float: left;
+
+}
+
+h5
+{
+    margin:0;
+    pading:0;
+    font-size: 75%;
+    margin-top:2px;
+    margin-bottom: 2px;
+
+}
+
+
+.loading
+{
+background-image: url("ajax-loader.gif");
+    background-repeat: no-repeat;
+    background-position: center left;
+}
+
+
+.background-color1
+{
+    background-color: white;
+
+}
+.color1
+{
+    color: white;
+}
+
+.border-color1
+{
+    border-color: white;
+}
+
+
+
+
+#searched-case-container
+{
+
+
+}
+
+
+#searched-case-container .container-body
+{
+    min-height: 50px;
+}
+
+
+
+#similar-cases-container .container-body
+{
+    min-height: 50px;
+}
+#searched-case-container .container-body .container-body
+{
+    min-height:0px;
+}
+
+#similar-cases-container .container-body .container-body
+{
+    min-height: 0px;
+}
+
+.line
+{
+height: 1px;
+width: 100%;
+}
+
+
+.similarity-display
+{
+    border: 1px solid #e1e1e1;
+    border-radius: 2px;
+    height: 6px;
+    padding: 1px;
+    position: relative;
+    right: 0;
+    width: 100%;
+    margin-top: 4px;
+
+}
+
+.similarity-display div
+{
+
+    height: 100%;
+width: 0%;
+}
+
+.similarity-display span
+{
+   position: relative;
+    display: block;
+    font-size: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -8px;
+    text-shadow: 1px 1px 0 white, 1px -1px 0 white, -1px 1px 0 white, -1px -1px 0 white;
+    width: 25px;
+}
+
+#nba-container
+{
+    padding-bottom: 15px;
+}
+
+
+.nba-display
+{
+    position: relative;
+    text-align: center;
+    font-size: 80%;
+
+}
+
+.container-abstract
+{
+    font-size: 80%;
+    font-weight: normal;
+}
+
+.info-overlay
+{
+position: absolute;
+margin: 5px;
+right: 0px;
+top:0px;
+width: 80%;
+
+background-color: white;
+border: 1px solid grey;
+ -webkit-box-shadow: 0px 3px 4px -3px rgba(0, 0, 0, 0.43);
+    -moz-box-shadow: 0px 3px 4px -3px rgba(0, 0, 0, 0.43);
+    box-shadow: 0px 3px 4px -3px rgba(0, 0, 0, 0.43);
+
+}
+
+
+
+
+.nba-best
+{
+border: 1px solid green;
+}
+
+/*gute ffarbe #3299bb*/
+
+.content-segment-marker
+{
+position: absolute;
+right: -47px;
+
+height: 100%;
+
+}
+
+.segment-header-marker
+{
+position: relative;
+width: 40px;
+height: 40px;
+
+text-align: right;
+
+
+
+-webkit-box-shadow: 2px 3px 4px -3px rgba(0, 0, 0, 0.43);
+    -moz-box-shadow: 2px 3px 4px -3px rgba(0, 0, 0, 0.43);
+    box-shadow: 2px 3px 4px -3px rgba(0, 0, 0, 0.43);
+
+border-radius: 0px 4px 4px 0px;
+
+
+
+
+}
+
+.content-segment-marker.active-case, .content-segment-marker.nbas,.content-segment-marker.similar-cases ,.content-segment-marker.config
+{
+border-left: 5px solid;
+}
+
+
+.content-segment-marker.config .segment-header-marker
+{
+    background: url(../images/icon-settings.svg);
+    background-size: 80% 80%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.content-segment-marker.nbas .segment-header-marker
+{
+    background: url(../images/icon-nba.svg);
+    background-size: 80% 80%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.content-segment-marker.active-case .segment-header-marker
+{
+    background: url(../images/icon-case.svg);
+    background-size: 80% 80%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.content-segment-marker.similar-cases .segment-header-marker
+{
+    background: url(../images/icon-cases.svg);
+    background-size: 80% 80%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+
+
+
+
+@media all and (max-width: 400px)
+{
+
+    .segment-header-marker {
+
+        width: 30px;
+        height: 30px;
+    }
+
+    .content-segment-marker {
+        right: -37px;
+    }
+
+    #content-area
+    {
+
+        margin-right: 42px;
+    }
+    #header-fixed
+    {
+
+        margin-right: 42px;
+    }
+    #div-footer
+    {
+
+        margin-right: 42px;
+    }
+
+
+    .content-segment-header
+    {
+        height: 30px;
+    }
+
+}

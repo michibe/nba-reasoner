@@ -1,0 +1,80 @@
+
+<div class="nbas-container">
+    <div class="nbas-container-header"></div>
+    <div class="nbas-container-body">
+
+
+        <div class="nba-container" data-ng-class="{'nba-best':$first}" data-ng-repeat="nbaProposal in nbaProposals">
+            <div class="nba-container-header">
+
+                    <h3 data-ng-style="{'color': colorService.getColor5()}">&#9992; {{nbaProposal.toActivityName}}  </h3>
+                    <div class="nba-display">{{nbaProposal.preparedRate * 100 | number : 2}}%</div>
+
+            </div>
+            <div class="nba-container-body">
+
+                    <div class="container  " data-ng-style="{'border-color': colorService.getColor1()}">
+                        <div class="container-header toggle-initiator-next color2">
+
+                            <div class="clearfix"><h4>Important KPIs</h4>
+
+                                <div class="div-toggle-down toggle-hide flap"> &#8744;
+                                </div>
+                                <div class="div-toggle-up toggle-show flap">&#8743;
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container-body toggle-show slide">
+
+                            <ul class="ul-case-attributes">
+                                <li data-ng-repeat="nbaFunctionResult in nbaProposal.nbaRatingFunctionResults">
+                                    <span  data-ng-if="nbaFunctionResult.displayResultInOverview" class="span-case-attribute-key">{{nbaFunctionResult.ratingFunction}}: {{nbaFunctionResult.rate | number : 2}}</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="container-footer"></div>
+
+
+                    </div>
+
+
+
+                        <div class="container" data-ng-style="{'border-color': colorService.getColor1()}">
+                            <div class="container-header toggle-initiator-next color2">
+                                <div class="clearfix"><h4>Ratings</h4>
+
+                                    <div class="div-toggle-down toggle-show flap"><span class="container-abstract">({{nbaProposal.nbaRatingFunctionResults.length}})</span> &#8744;
+                                    </div>
+                                    <div class="div-toggle-up toggle-hide flap">&#8743;
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="container-body toggle-hide slide">
+                                <ul class="ul-case-attributes">
+                                    <li data-ng-repeat="nbaFunctionResult in nbaProposal.nbaRatingFunctionResults"><span
+                                            class="span-case-attribute-key">{{nbaFunctionResult.ratingFunction}}(*{{nbaFunctionResult.usedWeight}}): {{nbaFunctionResult.preparedRate}}</span> </br> <span> Raw Result: {{nbaFunctionResult.rate}}</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="container-footer"></div>
+
+
+                        </div>
+
+
+
+
+
+            </div>
+            <div class="nba-container-footer"></div>
+
+        </div>
+
+
+
+
+    </div>
+    <div class="nbas-container-footer"></div>
+
+
+</div>

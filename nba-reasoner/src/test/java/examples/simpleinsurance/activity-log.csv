@@ -1,0 +1,37 @@
+caseId;incidentId;activityName;originator;result;comment;timestamp
+1429099650263;123123;Schaden anlegen;Max Mustermann;Schaden angelegt;undefined;1429099769807
+1429099650263;123123;Haftung und Deckung pruefen;Max Mustermann;undefined;undefined;1429100138514
+1429099650263;123123;Gutachten beauftragen;Max Mustermann;Schaden auf 200 € geschaetzt;undefined;1429100138524
+1429099650263;123123;Partnerwerkstatt beauftragen;Max Mustermann;undefined;undefined;1429100192234
+1429099650263;123123;Schaden zahlen und schliessen;Max Mustermann;175;undefined;1429100203665
+1429100214541;123123;Schaden anlegen;Max Mustermann;Schaden angelegt;undefined;1429100294534
+1429100214541;123123;Haftung und Deckung pruefen;Max Mustermann;undefined;undefined;1429100297893
+1429100214541;123123;Partnerwerkstatt beauftragen;Max Mustermann;undefined;undefined;1429100423751
+1429100214541;123123;Schaden zahlen und schliessen;Max Mustermann;160;undefined;1429100427663
+1429100460141;123123;Schaden anlegen;Max Mustermann;Schaden angelegt;undefined;1429100560861
+1429100460141;123123;Haftung und Deckung pruefen;Max Mustermann;undefined;undefined;1429100563936
+1429100460141;123123;Partnerwerkstatt beauftragen;Max Mustermann;undefined;undefined;1429100575533
+1429100460141;123123;Schaden zahlen und schliessen;Max Mustermann;180;undefined;1429100584856
+1429100792875;123123;Schaden anlegen;Max Mustermann;Schaden angelegt;undefined;1429100925570
+1429100792875;123123;Haftung und Deckung pruefen;Max Mustermann;undefined;undefined;1429100954910
+1429100792875;123123;Fremdreparatur vornehmen;Max Mustermann;undefined;undefined;1429260043334
+1429100792875;123123;Schaden zahlen und schliessen;Max Mustermann;220;undefined;1429260061117
+1429260072733;123123;Schaden anlegen;Max Mustermann;Schaden angelegt;undefined;1429260258389
+1429260072733;123123;Haftung und Deckung pruefen;Max Mustermann;undefined;undefined;1429260267531
+1429260072733;123123;Fremdreparatur vornehmen;Max Mustermann;undefined;undefined;1429260333640
+1429260072733;123123;Schaden zahlen und schliessen;Max Mustermann;230;undefined;1429260346159
+1429260352933;123123;Schaden anlegen;Max Mustermann;Schaden angelegt;undefined;1429260502753
+1429260352933;123123;Haftung und Deckung pruefen;Max Mustermann;undefined;undefined;1429260515919
+1429260352933;123123;Fremdreparatur vornehmen;Max Mustermann;;undefined;1429260648089
+1429260352933;123123;Schaden zahlen und schliessen;Max Mustermann;230;undefined;1429260652273
+1429260767992;123123;Schaden anlegen;Max Mustermann;Schaden angelegt;undefined;1429260822051
+1429260767992;123123;Haftung und Deckung pruefen;Max Mustermann;undefined;undefined;1429261578405
+1429260767992;123123;Gutachten beauftragen;Max Mustermann;undefined;undefined;1429261621547
+1429260767992;123123;Fremdreparatur vornehmen;Max Mustermann;;undefined;1429261769484
+1429260767992;123123;Schaden zahlen und schliessen;Max Mustermann;200;undefined;1429261773075
+1429262767604;123123;Schaden anlegen;Max Mustermann;Schaden angelegt;undefined;1429262807299
+1429262767604;123123;Haftung und Deckung pruefen;Max Mustermann;undefined;undefined;1429262812347
+1429736615646;123123;Schaden anlegen;Max Mustermann;Schaden angelegt;undefined;1429775238169
+1429736615646;123123;Haftung und Deckung pruefen;Max Mustermann;undefined;undefined;1429775247129
+1429262767604;123123;Partnerwerkstatt beauftragen;Max Mustermann;;undefined;1429775266800
+1429262767604;123123;Schaden zahlen und schliessen;Max Mustermann;180;undefined;1429775272464

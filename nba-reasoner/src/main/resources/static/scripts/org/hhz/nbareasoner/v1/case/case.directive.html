@@ -1,0 +1,66 @@
+<div class="case-container" >
+    <div class="case-container-header">
+        <h3 ><span
+                data-ng-class="(case.attributes | attributesKeyFilter:'lifecycleStatus') == 'closed' ? 'case-closed' : 'case-opened'">&#10038;</span>
+           <span  data-ng-style="{'color': colorService.getColor2()}"> {{case.attributes | attributesKeyFilter:"caseId"}}</span></h3>
+
+    </div>
+    <div class="case-container-body">
+        <div class="container" data-ng-style="{'border-color': colorService.getColor1()}">
+            <div class="container-header toggle-initiator-next color2">
+                <div class="clearfix"><h4>Attributes</h4>
+
+                    <div class="div-toggle-down toggle-show flap"><span class="container-abstract">({{case.attributes.length}})</span> &#8744;
+                    </div>
+                    <div class="div-toggle-up toggle-hide flap ">&#8743;
+                    </div>
+                </div>
+            </div>
+            <div class="container-body toggle-hide slide">
+                <ul class="ul-case-attributes">
+                    <li data-ng-repeat="attribute in case.attributes"><span
+                            class="span-case-attribute-key">{{attribute.key}}:</span> <span> {{attribute.value}}</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="container-footer"></div>
+
+
+        </div>
+
+        <div class="container border-color4" data-ng-style="{'border-color': colorService.getColor1()}">
+            <div class="container-header color2 toggle-initiator-next">
+                <div class="clearfix"><h4>Case Incidents</h4>
+
+                    <div class="div-toggle-down toggle-show flap"><span class="container-abstract">({{case.activities.length}})</span> &#8744;
+                    </div>
+                    <div class="div-toggle-up toggle-hide flap">&#8743;
+                    </div>
+                </div>
+            </div>
+            <div class="container-body toggle-hide slide">
+
+                <div data-ng-repeat="activity in case.activities">
+                    <div class="div-event">
+                        <h5>{{activity.attributes  | attributesKeyFilter:"name"}}</h5>
+                        <ul class="ul-event-attributes">
+                            <li data-ng-repeat="attribute in activity.attributes"><span
+                                    class="span-event-attribute-key">{{attribute.key}}:</span>
+                                <span>{{attribute.value}}</span>
+                            </li>
+
+                        </ul>
+
+                    </div>
+                    <div class="arrow-down" data-ng-style="{'color': colorService.getColor1()}" ng-class="{'hide': $last}">&#8595</div>
+                </div>
+
+
+            </div>
+            <div class="container-footer"></div>
+
+
+        </div>
+    </div>
+    <div class="case-container-footer"></div>
+</div>

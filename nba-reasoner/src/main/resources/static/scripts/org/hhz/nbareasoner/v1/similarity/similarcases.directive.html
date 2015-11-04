@@ -1,0 +1,110 @@
+<div id="similar-cases-container">
+
+    <div class="similar-cases-container-body">
+
+        <div class="similar-case-container" data-ng-repeat="similarCase in similarCases">
+            <div class="similar-case-container-body" >
+
+
+                <div class="case-container" >
+                    <div class="case-container-header">
+                        <h3><span data-ng-class="(similarCase.relatedCase.attributes | attributesKeyFilter:'lifecycleStatus') == 'closed' ? 'case-closed' : 'case-opened'">&#10038;</span>
+                            <span  data-ng-style="{'color': colorService.getColor2()}"> {{similarCase.relatedCase.attributes | attributesKeyFilter:"caseId"}}</span></h3>
+                    </div>
+                    <div class="case-container-body">
+
+                        <div class="similarity-display"> <div  data-ng-style="{'background-color': colorService.getColor4(), 'width': similarCase.weightedSimilarityAsPercentage+'%'}"></div><span>{{similarCase.weightedSimilarityAsPercentage | number : 2 }}%</span></div>
+
+
+                        <div class="container" data-ng-style="{'border-color': colorService.getColor1()}">
+                            <div class="container-header toggle-initiator-next color2">
+
+
+                                <div class="clearfix"><h4>Similarity</h4>
+
+                                    <div class="div-toggle-down  toggle-show flap">&#8744;
+                                    </div>
+                                    <div class="div-toggle-up toggle-hide flap">&#8743;
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="container-body toggle-hide slide">
+                                <ul class="ul-case-attributes">
+                                    <li data-ng-repeat="similarityFunctionResult in similarCase.similarityFunctionResults">
+                                        <span   class="span-case-attribute-key">{{::similarityFunctionResult.attributeKey}}:</span> <span> {{::similarityFunctionResult.similarityFunction}}</span> <span> {{::similarityFunctionResult.weightedSimilarity | number : 2 }}</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="container-footer"></div>
+
+
+                        </div>
+
+
+
+                        <div class="container " data-ng-style="{'border-color': colorService.getColor1()}">
+                            <div class="container-header toggle-initiator-next color2">
+                                <div class="clearfix"><h4>Attributes</h4>
+
+                                    <div class="div-toggle-down toggle-show flap"><span class="container-abstract">({{::similarCase.relatedCase.attributes.length}})</span> &#8744;
+                                    </div>
+                                    <div class="div-toggle-up toggle-hide flap ">&#8743;
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="container-body toggle-hide slide">
+                                <ul class="ul-case-attributes">
+                                    <li data-ng-repeat="attribute in similarCase.relatedCase.attributes"><span
+                                            class="span-case-attribute-key">{{::attribute.key}}:</span> <span> {{::attribute.value}}</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="container-footer"></div>
+
+
+                        </div>
+
+                        <div class="container  " data-ng-style="{'border-color': colorService.getColor1()}">
+                            <div class="container-header color2 toggle-initiator-next">
+                                <div class="clearfix"><h4>Case Incidents</h4>
+
+                                    <div class="div-toggle-down toggle-show flap"><span class="container-abstract">({{::similarCase.relatedCase.activities.length}})</span> &#8744;
+                                    </div>
+                                    <div class="div-toggle-up toggle-hide flap">&#8743;
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="container-body toggle-hide slide">
+
+                                <div data-ng-repeat="activity in similarCase.relatedCase.activities">
+                                    <div class="div-event">
+                                        <h5>{{::activity.attributes  | attributesKeyFilter:"name"}}</h5>
+                                        <ul class="ul-event-attributes">
+                                            <li data-ng-repeat="attribute in activity.attributes"><span
+                                                    class="span-event-attribute-key">{{::attribute.key}}:</span>
+                                                <span>{{::attribute.value}}</span>
+                                            </li>
+
+                                        </ul>
+
+                                    </div>
+                                    <div class="arrow-down " data-ng-style="{'color': colorService.getColor1()}" ng-class="{'hide': $last}">&#8595</div>
+                                </div>
+
+
+                            </div>
+                            <div class="container-footer"></div>
+
+
+                        </div>
+                    </div>
+                    <div class="case-container-footer"></div>
+                </div>
+
+            </div>
+        </div>
+
+
+
+        </div>
+</div>
