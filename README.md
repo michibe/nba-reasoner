@@ -86,7 +86,9 @@ The folder [nba-simple-insurance](/nba-simple-insurance/nba-simple-insurance) co
 The folder [working-example](/nba-simple-insurance/working-example) contains a complete running environment with all necessary files to run the nba-simple-insurance application. Just download the folder, open the directory in a terminal and run the application via *java -jar nba-simple-insurance.jar*.
 After this you should be able to use the rest-urls or the gui under http://localhost:8080/nbareasoner/.
 
-![GUI Overview](/images/nba-simple-insurance-gui-1.png)
+![GUI Overview](/images/nba-simple-insurance-gui-1.PNG)
+![GUI Overview](/images/nba-simple-insurance-gui-2.PNG)
+![GUI Overview](/images/nba-simple-insurance-gui-3.PNG)
 
 
 ## [nba-tic-tac-toe](/nba-tic-tac-toe)
