@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<cbml>
+    <caseBaseDefinition>
+        <computedAttributeDefinition key="numberOfCases" type="java.lang.Integer" value="0">
+            <computation class="org.hhz.nbareasoner.cbml.impl.advanced.computing.computations.CasesIncidentsNumberComputation">
+            </computation>
+        </computedAttributeDefinition>
+
+
+        <caseDefinition>
+            <computedAttributeDefinition key="lineage" type="java.lang.String" value="besipielwert zum testen">
+                <computation class="org.hhz.nba_tic_tac_toe.LineageAttributeComputation">
+                </computation>
+            </computedAttributeDefinition>
+           
+            <loadedAttributeDefinition key="caseId" type="java.lang.String" value="id">
+                <loadingSourceClosedCase class="org.hhz.nbareasoner.cbml.impl.advanced.loading.loader.AttributeLoaderCsvJdbc">
+                    <loadingSourceParameter key="src" value="file:///${user.dir}/activity-log.csv"/>
+                    <loadingSourceParameter key="separator" value=";"/>
+                    <loadingSourceParameter key="sqlSelect" value="Select  gameId as caseId, gameId as value from activity-log where activity='finish game' group by gameId "/>
+                </loadingSourceClosedCase>
+            </loadedAttributeDefinition>             
+
+
+            <activityDefinition>
+
+			  <loadedAttributeDefinition key="incidentId" type="java.lang.String" value="incidentId">
+                    <loadingSourceClosedCase class="org.hhz.nbareasoner.cbml.impl.advanced.loading.loader.AttributeLoaderCsvJdbc">
+                        <loadingSourceParameter key="src" value="file:///${user.dir}/activity-log.csv"/>
+                        <loadingSourceParameter key="separator" value=";"/>
+                        <loadingSourceParameter key="sqlSelect" value="Select  gameId as caseId, gameId + ' ' + activity + ' ' +timestamp as incidentId , gameId + ' ' + activity + ' ' +timestamp as value from activity-log"/>
+                    </loadingSourceClosedCase>
+                    <loadingSourceOpenedCase class="org.hhz.nbareasoner.cbml.impl.advanced.loading.loader.AttributeLoaderCsvJdbc">
+                        <loadingSourceParameter key="src" value="file:///${user.dir}/activity-log.csv"/>
+                        <loadingSourceParameter key="separator" value=";"/>
+                        <loadingSourceParameter key="sqlSelect" value="Select  gameId as caseId, gameId + ' ' + activity + ' ' +timestamp as incidentId , gameId + ' ' + activity + ' ' +timestamp as value from activity-log where gameId = '${openedCaseId}'"/>
+                    </loadingSourceOpenedCase>
+                </loadedAttributeDefinition>
+			
+                <loadedAttributeDefinition key="name" type="java.lang.String" value="name">
+                    <loadingSourceClosedCase class="org.hhz.nbareasoner.cbml.impl.advanced.loading.loader.AttributeLoaderCsvJdbc">
+                        <loadingSourceParameter key="src" value="file:///${user.dir}/activity-log.csv"/>
+                        <loadingSourceParameter key="separator" value=";"/>
+                        <loadingSourceParameter key="sqlSelect" value="Select  gameId as caseId, gameId + ' ' + activity + ' ' +timestamp as incidentId , activity as value from activity-log"/>
+                    </loadingSourceClosedCase>
+                    <loadingSourceOpenedCase class="org.hhz.nbareasoner.cbml.impl.advanced.loading.loader.AttributeLoaderCsvJdbc">
+                        <loadingSourceParameter key="src" value="file:///${user.dir}/activity-log.csv"/>
+                        <loadingSourceParameter key="separator" value=";"/>
+                        <loadingSourceParameter key="sqlSelect" value="Select  gameId as caseId, gameId + ' ' + activity + ' ' +timestamp as incidentId , activity as value from activity-log where gameId = '${openedCaseId}'"/>
+                    </loadingSourceOpenedCase>
+                </loadedAttributeDefinition>
+              
+                <loadedAttributeDefinition key="timestamp" type="java.sql.Timestamp" converterMethod="org.hhz.nbareasoner.cbml.impl.base.definition.attributedefinition.JavaTypeConverter.timestampFromString" value="timestamp">
+                    <loadingSourceClosedCase class="org.hhz.nbareasoner.cbml.impl.advanced.loading.loader.AttributeLoaderCsvJdbc">
+                        <loadingSourceParameter key="src" value="file:///${user.dir}/activity-log.csv"/>
+                        <loadingSourceParameter key="separator" value=";"/>
+                        <loadingSourceParameter key="sqlSelect" value="Select  gameId as caseId,  gameId + ' ' + activity + ' ' +timestamp as incidentId  , timestamp as value from activity-log"/>
+                    </loadingSourceClosedCase>
+                    <loadingSourceOpenedCase class="org.hhz.nbareasoner.cbml.impl.advanced.loading.loader.AttributeLoaderCsvJdbc">
+                        <loadingSourceParameter key="src" value="file:///${user.dir}/activity-log.csv"/>
+                        <loadingSourceParameter key="separator" value=";"/>
+                        <loadingSourceParameter key="sqlSelect" value="Select  gameId as caseId,  gameId + ' ' + activity + ' ' +timestamp as incidentId  , timestamp as value from activity-log where gameId = '${openedCaseId}'"/>
+                    </loadingSourceOpenedCase>
+                </loadedAttributeDefinition>
+				
+				<loadedAttributeDefinition key="result" type="java.lang.String" value="result">
+                    <loadingSourceClosedCase class="org.hhz.nbareasoner.cbml.impl.advanced.loading.loader.AttributeLoaderCsvJdbc">
+                        <loadingSourceParameter key="src" value="file:///${user.dir}/activity-log.csv"/>
+                        <loadingSourceParameter key="separator" value=";"/>
+                        <loadingSourceParameter key="sqlSelect" value="Select  gameId as caseId,  gameId + ' ' + activity + ' ' +timestamp as incidentId  , result as value from activity-log"/>
+                    </loadingSourceClosedCase>
+                    <loadingSourceOpenedCase class="org.hhz.nbareasoner.cbml.impl.advanced.loading.loader.AttributeLoaderCsvJdbc">
+                        <loadingSourceParameter key="src" value="file:///${user.dir}/activity-log.csv"/>
+                        <loadingSourceParameter key="separator" value=";"/>
+                        <loadingSourceParameter key="sqlSelect" value="Select  gameId as caseId,  gameId + ' ' + activity + ' ' +timestamp as incidentId  , result as value from activity-log where gameId = '${openedCaseId}'"/>
+                    </loadingSourceOpenedCase>
+                </loadedAttributeDefinition>
+				
+				<loadedAttributeDefinition key="originator" type="java.lang.String" value="originator">
+                    <loadingSourceClosedCase class="org.hhz.nbareasoner.cbml.impl.advanced.loading.loader.AttributeLoaderCsvJdbc">
+                        <loadingSourceParameter key="src" value="file:///${user.dir}/activity-log.csv"/>
+                        <loadingSourceParameter key="separator" value=";"/>
+                        <loadingSourceParameter key="sqlSelect" value="Select  gameId as caseId,  gameId + ' ' + activity + ' ' +timestamp as incidentId  , originator as value from activity-log"/>
+                    </loadingSourceClosedCase>
+                    <loadingSourceOpenedCase class="org.hhz.nbareasoner.cbml.impl.advanced.loading.loader.AttributeLoaderCsvJdbc">
+                        <loadingSourceParameter key="src" value="file:///${user.dir}/activity-log.csv"/>
+                        <loadingSourceParameter key="separator" value=";"/>
+                        <loadingSourceParameter key="sqlSelect" value="Select  gameId as caseId,  gameId + ' ' + activity + ' ' +timestamp as incidentId  , originator as value from activity-log where gameId = '${openedCaseId}'"/>
+                    </loadingSourceOpenedCase>
+                </loadedAttributeDefinition>
+                
+				
+				
+            </activityDefinition>
+
+        </caseDefinition>
+    </caseBaseDefinition>
+    <caseBase>
+
+    </caseBase>
+</cbml>

@@ -77,12 +77,26 @@ public class NbaRatingResult {
 
 
                 //WEnn weniger besser gerankt werden soll dann prozent umdrehen zb. wird aus 12% = 88%
-                if(this.nbaRatingTypeResult.getNbaRating().getRatingScale().equals(NbaRating.RatingScale.MIN_BETTER) && this.preparedRate!=0 && this.preparedRate !=1)
+                if(this.nbaRatingTypeResult.getNbaRating().getRatingScale().equals(NbaRating.RatingScale.MIN_BETTER))
                 {
-                    //System.out.println("Yes min better prepared rate before " + this.preparedRate);
-                    this.preparedRate = 1 - this.preparedRate;
-                    this.nbaRatingTypeResult.addToRatingResultPositiveInvertedAccumulated(this.preparedRate);
-                    //System.out.println("Yes min better add " + this.preparedRate+ " to stage2");
+                    if(this.preparedRate==0)
+                    {
+                        this.preparedRate =1;
+                    }
+                    else if(this.preparedRate==1)
+                    {
+                        this.preparedRate =0;
+                    }
+                    else
+                    {
+                        //System.out.println("Yes min better prepared rate before " + this.preparedRate);
+                        this.preparedRate = 1 - this.preparedRate;
+                        this.nbaRatingTypeResult.addToRatingResultPositiveInvertedAccumulated(this.preparedRate);
+                        //System.out.println("Yes min better add " + this.preparedRate+ " to stage2");
+                    }
+
+
+
                 }
 
     }

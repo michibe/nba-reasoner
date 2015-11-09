@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<nbaReasonerConfig>
+
+
+
+    <cbrConfig>
+       <caseSimilarityMeasureConfigs>
+
+            <caseSimilarityMeasureConfig attributeKey="lineage" similarityMeasureClass="org.hhz.nba_tic_tac_toe.GameLineage" weightDefault="1.0" filterOnSimilarityMeasureResult=">=1"  weightConfigurable="false" />
+		</caseSimilarityMeasureConfigs>
+    </cbrConfig>
+
+
+
+
+    <nbaConfig>
+
+        <nbaRatingConfigs>
+
+            <nbaRatingConfig ratingClass="org.hhz.nba_tic_tac_toe.PossibleActivitiesRating" weightDefault="0.0" filterOnRatingResult=">=0.01" displayInOverview="true" weightConfigurable="false"   >
+          
+</nbaRatingConfig>
+
+<nbaRatingConfig ratingClass="org.hhz.nba_tic_tac_toe.WinLooseDrawDifferenceRating" weightDefault="200.0"  displayInOverview="true" weightConfigurable="true"   >
+          
+</nbaRatingConfig>
+
+
+<nbaRatingConfig ratingClass="org.hhz.nba_tic_tac_toe.DrawLooseDifferenceRating" weightDefault="100.0"  displayInOverview="true" weightConfigurable="false"   >
+          
+</nbaRatingConfig>
+
+<nbaRatingConfig ratingClass="org.hhz.nba_tic_tac_toe.LooseCounterRating" weightDefault="1.0"  displayInOverview="true" weightConfigurable="false"   >
+          
+</nbaRatingConfig>
+
+
+
+           
+		 
+		  
+		   
+        </nbaRatingConfigs>
+    </nbaConfig>
+
+
+</nbaReasonerConfig>

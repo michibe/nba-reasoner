@@ -1,0 +1,77 @@
+body, html
+{
+background-color: #eee;
+height: 100%;
+padding:0px;
+margin: 0px;
+}
+
+h2
+{
+height:100%;
+width: 100%;
+text-align: center;
+
+}
+
+.board
+{
+height: 100%;
+width: 100%;
+}
+
+.container.main
+{
+height: 90%;
+}
+
+
+
+.overlay
+{
+position: absolute;
+top: 0px;
+left: 0px;
+height: 100%;
+width:100%;
+}
+.container-fluid.board
+{
+position: relative;
+}
+.container-fluid.settings
+{
+
+height: 100%;
+z-index: 40;
+padding-top: 10%;
+}
+
+.board-inactive
+{
+    opacity: 0.2;
+}
+
+.board-active
+{
+
+}
+
+.board .row
+{
+height: 33.33%;
+}
+
+.board .row .col-xs-4
+{
+height: 100%;
+padding: 5px;
+}
+
+.pawn-field
+{
+display:block;
+height: 100%;
+width: 100%;
+background-color: white;
+}
