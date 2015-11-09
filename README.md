@@ -157,7 +157,7 @@ To use the reasoner in a project just add it's maven-dependency and the spring-b
 :heavy_exclamation_mark: The project is not available in the official maven-repository. To use the project as described above you have to clone it first and install it via maven in the local repository. :heavy_exclamation_mark:
 
 
-#### Running the reasoner
+
 #### Rest Interfaces
 
 HTTP-Method | Produce-Type | URL | Short Description
@@ -183,7 +183,7 @@ The first use-case the reasoner was developed for, was the insurance claim manag
 ### Java Project
 
 The folder [nba-simple-insurance](/nba-simple-insurance/nba-simple-insurance) contains the java-project. 
-For this running example no additional similarity functions or ratings were necessary, so the project is just an empty project with the pom-file described above.
+For this running example no additional similarity functions or ratings have been necessary, so the project is just an empty project with the pom-file described above.
 
 ### Workable Sample
 
@@ -214,6 +214,6 @@ After this you should be able to use the rest-urls or the gui under http://local
 
 The tic-tac-toe gui is reachable under http://localhost:8080/nbareasoner/tictactoe.html.
 
-![GUI Overview](/images/nba-tic-tac-toe-1.PNG)
+![GUI Overview](/images/nba-tic-tac-toe-gui-1.PNG)
 
-![GUI Overview](/images/nba-tic-tac-toe-2.PNG)
+![GUI Overview](/images/nba-tic-tac-toe-gui-2.PNG)
