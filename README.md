@@ -16,8 +16,8 @@ The prototype is based on a concept named Case Based Reasoning. We used CBR in a
 
 #### Case Base Model Language (CBML)
 
-The CBML is a format for storing cases with their events and activities. It has similarities to the [XES-Standard] (http://www.xes-standard.org/ but is more strict and has some additional features like the definition of data sources for the attributes.   
-
+The CBML is a format for storing cases with their events and activities. It has similarities to the [XES-Standard] (http://www.xes-standard.org/ but is more strict and has some additional features like the definition of data sources for the case-attributes.   
+The main structure looks as follows:
 
 
 ```xml
@@ -57,51 +57,51 @@ The CBML is a format for storing cases with their events and activities. It has 
 
 ```xml
 <cbml>
-		<caseBaseDefinition> 
-			<caseDefinition>      
-				<loadedAttributeDefinition key="caseId" type="{Datentyp}" value="{Standardwert}">
-					<loadingSourceClosedCase class="{FQN der Klasse}">
-							{Parameter}
-						</loadingSourceClosedCase>						
-				</loadedAttributeDefinition>
-				<loadedAttributeDefinition key="lifecycleStatus" type="{Datentyp}" value="{Standardwert}">
-					<loadingSourceClosedCase class="{FQN der Klasse}">
-							{Parameter}
-						</loadingSourceClosedCase>
-						<loadingSourceOpenedCase class="{FQN der Klasse}">
-							{Parameter}
-						</loadingSourceOpenedCase>
-				</loadedAttributeDefinition>
-				<activityDefinition>
-					<loadedAttributeDefinition key="incidentId" type="{Datentyp}" value="{Standardwert}">
-						<loadingSourceClosedCase class="{FQN der Klasse}">
-							{Parameter}
-						</loadingSourceClosedCase>
-						<loadingSourceOpenedCase class="{FQN der Klasse}">
-							{Parameter}
-						</loadingSourceOpenedCase>
-					</loadedAttributeDefinition>
-					<loadedAttributeDefinition key="name" type="{Datentyp}" value="{Standardwert}">
-						<loadingSourceClosedCase class="{FQN der Klasse}">
-							{Parameter}
-						</loadingSourceClosedCase>
-						<loadingSourceOpenedCase class="{FQN der Klasse}">
-							{Parameter}
-						</loadingSourceOpenedCase>
-					</loadedAttributeDefinition>         
-					<loadedAttributeDefinition key="timestamp" type="{Datentyp}" value="{Standardwert}">
-						<loadingSourceClosedCase class="{FQN der Klasse}">
-							{Parameter}
-						</loadingSourceClosedCase>
-						<loadingSourceOpenedCase class="{FQN der Klasse}">
-							{Parameter}
-						</loadingSourceOpenedCase>
-					</loadedAttributeDefinition>
-				</activityDefinition>
-			</caseDefinition>
-		</caseBaseDefinition>
-		<caseBase> </caseBase>
-	</cbml>
+	<caseBaseDefinition> 
+        <caseDefinition>      
+            <loadedAttributeDefinition key="caseId" type="{Datentyp}" value="{Standardwert}">
+                <loadingSourceClosedCase class="{FQN der Klasse}">
+                    {Parameter}
+                </loadingSourceClosedCase>						
+            </loadedAttributeDefinition>
+            <loadedAttributeDefinition key="lifecycleStatus" type="{Datentyp}" value="{Standardwert}">
+                <loadingSourceClosedCase class="{FQN der Klasse}">
+                    {Parameter}
+                </loadingSourceClosedCase>
+                <loadingSourceOpenedCase class="{FQN der Klasse}">
+                    {Parameter}
+                </loadingSourceOpenedCase>
+            </loadedAttributeDefinition>
+            <activityDefinition>
+                <loadedAttributeDefinition key="incidentId" type="{Datentyp}" value="{Standardwert}">
+                    <loadingSourceClosedCase class="{FQN der Klasse}">
+                        {Parameter}
+                    </loadingSourceClosedCase>
+                    <loadingSourceOpenedCase class="{FQN der Klasse}">
+                        {Parameter}
+                    </loadingSourceOpenedCase>
+                </loadedAttributeDefinition>
+                <loadedAttributeDefinition key="name" type="{Datentyp}" value="{Standardwert}">
+                    <loadingSourceClosedCase class="{FQN der Klasse}">
+                        {Parameter}
+                    </loadingSourceClosedCase>
+                    <loadingSourceOpenedCase class="{FQN der Klasse}">
+                        {Parameter}
+                    </loadingSourceOpenedCase>
+                </loadedAttributeDefinition>         
+                <loadedAttributeDefinition key="timestamp" type="{Datentyp}" value="{Standardwert}">
+                    <loadingSourceClosedCase class="{FQN der Klasse}">
+                        {Parameter}
+                    </loadingSourceClosedCase>
+                    <loadingSourceOpenedCase class="{FQN der Klasse}">
+                        {Parameter}
+                    </loadingSourceOpenedCase>
+                </loadedAttributeDefinition>
+            </activityDefinition>
+        </caseDefinition>
+    </caseBaseDefinition>
+    <caseBase> </caseBase>
+</cbml>
 ```
 
 
@@ -109,6 +109,13 @@ The CBML is a format for storing cases with their events and activities. It has 
 #### Prepare and Configure
 
 For using the reasoner you have to prepare a few files:
+
+- The cbml.xml file for configuring the case base.
+
+- The nba-reasoner-config.xml file for configuring the similarity-functions and the ratings.
+
+- The application.properties file for configuring the application and the spring boot settings.
+
 
 
 
@@ -206,3 +213,7 @@ The folder [working-example](/nba-tic-tac-toe/working-example) contains a comple
 After this you should be able to use the rest-urls or the gui under http://localhost:8080/nbareasoner.
 
 The tic-tac-toe gui is reachable under http://localhost:8080/nbareasoner/tictactoe.html.
+
+![GUI Overview](/images/nba-tic-tac-toe-1.PNG)
+
+![GUI Overview](/images/nba-tic-tac-toe-2.PNG)
