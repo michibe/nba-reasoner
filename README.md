@@ -1,6 +1,6 @@
 # Next Best Action Reasoner
 
-:heavy_exclamation_mark: This project is under development and therefore still a little bit buggy :heavy_exclamation_mark:
+This project is not developed anymore :heavy_exclamation_mark:
 
 
 This repository consists out of the main framework [nba-reasoner](/nba-reasoner) and two sample projects ([nba-simple-insurance](/nba-simple-insurance), [nba-tic-tac-toe](/nba-tic-tac-toe)) using the framework to suggest next best actions.
